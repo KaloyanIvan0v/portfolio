@@ -1,0 +1,39 @@
+<section
+  [ngStyle]="{
+    'flex-direction': (2 + dataIndex) % 2 === 0 ? '' : 'row-reverse'
+  }"
+>
+  <div class="project-image">
+    <img src="{{ data[dataIndex].imgPath }}" alt="" />
+  </div>
+  <div
+    class="project-data"
+    [ngStyle]="{
+      'align-items': (2 + dataIndex) % 2 === 0 ? '' : 'end'
+    }"
+  >
+    <div class="project-title">
+      {{ data[dataIndex].name }}
+    </div>
+    <div class="tech-stack">
+      <div *ngFor="let tech of data[dataIndex].techStack">
+        {{ tech }}
+        <div
+          *ngIf="
+            tech !==
+            data[dataIndex].techStack[data[dataIndex].techStack.length - 1]
+          "
+        >
+          |
+        </div>
+      </div>
+    </div>
+    <div class="project-description-text">
+      {{ data[dataIndex].description }}
+    </div>
+    <div class="project-buttons">
+      <button class="button-optic btn-purple live-test">Live test</button>
+      <button class="button-optic btn-empty git-hub">GitHub</button>
+    </div>
+  </div>
+</section>

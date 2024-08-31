@@ -1,1 +1,26 @@
-<p>header works!</p>
+<nav>
+  <div class="name">
+    <a href="#hero"
+      ><img src="./../../../../assets/img/kaloyan.png" alt=""
+    /></a>
+  </div>
+  <div class="menu">
+    <ul>
+      <li (click)="setActive('about me')">
+        <a href="#about">About Me</a>
+        <div
+          [ngClass]="{ 'purple-line': activeSection === 'about me' }"
+          class="purple-line"
+        ></div>
+      </li>
+      <li (click)="setActive('skills')">
+        <a href="#skills">Skills</a>
+        <div [ngClass]="{ 'purple-line': activeSection === 'skills' }"></div>
+      </li>
+      <li (click)="setActive('portfolio')">
+        <a href="#portfolio">Portfolio</a>
+        <div [ngClass]="{ 'purple-line': activeSection === 'portfolio' }"></div>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,90 @@
+@import "./../../../shared/scss/global.scss";
+form {
+  @include dFlex($fd: column);
+  width: 617px;
+  button {
+    margin-top: 41px;
+  }
+}
+
+.form-privacy-policy {
+  @include dFlex($jc: start);
+  width: 100%;
+  border: none !important;
+  padding: 0px !important;
+  font-size: 14px;
+  gap: 8px;
+  margin-bottom: 8px;
+  div {
+    @include dFlex();
+    border: none;
+    width: max-content;
+    padding: 0px;
+    font-size: 14px;
+    margin: 0px;
+  }
+  a {
+    color: $secondary-color;
+  }
+}
+
+.checkbox-wrapper {
+  img {
+    width: 18px;
+    height: 18px;
+  }
+}
+.input-waraper {
+  @include dFlex($fd: column);
+  gap: 10px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.input-div {
+  @include dFlex($fd: row);
+  width: 100%;
+  border: 1px solid $secondary-color;
+  border-radius: 10px;
+  padding: 11px 25px 11px 25px;
+  &:hover {
+    border: 1px solid $accent-color;
+  }
+  input {
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
+
+  textarea {
+    font-size: 16px;
+    width: 100%;
+    height: 202px;
+    border: none;
+    background-color: transparent;
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
+}
+
+.input-div-error {
+  @include dFlex($jc: start);
+  width: 100%;
+  p {
+    font-size: 14px;
+    color: $error-color;
+  }
+}
+
+.error-input-border {
+  border: 1px solid $error-color !important;
+}
+
+.valid-input-border {
+  border: 1px solid $accent-color !important;
+}

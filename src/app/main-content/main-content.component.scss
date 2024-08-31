@@ -1,0 +1,5 @@
+@import "./../shared/scss/global.scss";
+section {
+  @include dFlex($fd: column);
+  width: 100%;
+}

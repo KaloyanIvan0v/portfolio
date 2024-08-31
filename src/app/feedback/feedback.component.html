@@ -1,1 +1,55 @@
-<p>feedback works!</p>
+<section>
+  <div class="testimonial-content">
+    <div class="testimonial-sign">
+      <img src="./../../assets/img/feedback-section/comment.png" alt="" />
+    </div>
+    <div class="testimonial-box">
+      <div class="testimonial-text-and-author">
+        <div class="testimonial-text">
+          <p>
+            {{ testimonialData[testimonialIndex].testimonial }}
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="purple-line-author"></div>
+          <p>
+            {{ testimonialData[testimonialIndex].name }} -
+            {{ testimonialData[testimonialIndex].position }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-img">
+      <img src="{{ testimonialData[testimonialIndex].imgPath }}" alt="" />
+      <div class="purple-line-img"></div>
+    </div>
+  </div>
+  <div class="testimonial-navigation">
+    <div (click)="prevTestimonial()" class="arrow-left">
+      <img
+        class="arrow-img-left"
+        src="./../../assets/img/feedback-section/arrow-left.png"
+        alt=""
+      />
+    </div>
+    <div *ngFor="let item of testimonialData" class="dot-position">
+      <img
+        *ngIf="currentTestimonialIndex != item"
+        src="./../../assets/img/feedback-section/green-dot.png"
+        alt=""
+      />
+      <img
+        *ngIf="currentTestimonialIndex == item"
+        src="./../../assets/img/feedback-section/purple-dot.png"
+        alt=""
+      />
+    </div>
+    <div (click)="nextTestimonial()" class="arrow-right">
+      <img
+        class="arrow-img-right"
+        src="./../../assets/img/feedback-section/arrow-right.png"
+        alt=""
+      />
+    </div>
+  </div>
+</section>

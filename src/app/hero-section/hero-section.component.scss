@@ -1,0 +1,222 @@
+@import "./../shared/scss/global.scss";
+
+section {
+  @include dFlex($fd: column);
+  height: 100vh;
+  width: calc(100vw - 15px);
+  max-width: 1920px;
+  background-color: $primary-background-color;
+  padding-top: 300px;
+}
+
+.hero-top {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.hero-left {
+  @include dFlex();
+  height: 50%;
+  width: 100%;
+  margin-left: 47px;
+  padding-top: 70px;
+}
+
+.image-wrapper {
+  padding-top: 240px;
+  position: relative;
+  width: 30vw;
+  min-width: 500px;
+  max-width: 646px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    position: absolute;
+    height: auto;
+  }
+}
+
+.developer-image {
+  width: 100%;
+  z-index: 1;
+}
+
+.background-image {
+  width: 170%;
+  top: -160px;
+}
+
+.hero-right {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-right: 100px;
+}
+
+.intro-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+  width: 838px;
+  line-height: 1.1;
+}
+
+.intro-details {
+  width: 100%;
+}
+
+.intro-greeting {
+  height: max-content;
+  @include dFlex($jc: space-between);
+  transform: rotate(-90deg);
+  font-size: 64px;
+  p {
+    white-space: nowrap;
+  }
+}
+
+.intro-name {
+  p {
+    font-size: 84px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+}
+
+.intro-role {
+  p {
+    font-size: 64px;
+    font-weight: 400;
+    color: $secondary-color;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+.bottom-wave {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  max-width: 1920px;
+  > img {
+    width: 100%;
+    height: auto;
+  }
+  z-index: 2;
+}
+
+.hero-bottom {
+  @include dFlex($jc: space-between);
+  width: 100%;
+  z-index: 3;
+  padding-right: 100px;
+}
+
+.bottom-left {
+  @include dFlex($jc: flex-start);
+  gap: 32px;
+  padding-bottom: 4px;
+}
+
+.purple-line {
+  min-height: 4px;
+  width: 100px;
+  background-color: $secondary-color;
+}
+
+.bottom-right {
+  @include dFlex($jc: right);
+  font-size: 23px;
+  transform-origin: top right;
+  transform: rotate(90deg);
+  font-weight: 300;
+  height: max-content;
+}
+
+.purple-shadow {
+  overflow: hidden;
+  position: absolute;
+  bottom: -470px;
+  right: -270px;
+  > img {
+    width: 600px;
+    height: auto;
+  }
+  z-index: 3;
+}
+
+.social-link-div {
+  @include dFlex();
+}
+
+@media (max-width: 1400px) {
+  .intro-text {
+    width: 626px;
+  }
+  .intro-greeting {
+    font-size: 48px;
+  }
+  .intro-name {
+    p {
+      font-size: 64px;
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: 48px;
+    }
+  }
+  .hero-bottom {
+    @include dFlex($jc: space-between);
+    width: 100%;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 1500px) {
+  .image-wrapper {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .image-wrapper {
+    padding-top: 80px;
+    min-width: 380px;
+  }
+  .intro-text {
+    width: 442px;
+    margin-bottom: 24px;
+  }
+  .intro-greeting {
+    p {
+      font-size: 34px;
+    }
+  }
+  .intro-name {
+    p {
+      font-size: 48px;
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: 34px;
+    }
+  }
+
+  .button-optic {
+    width: 140px;
+    font-size: 18px;
+    padding: 8px 13px 8px 13px;
+  }
+}

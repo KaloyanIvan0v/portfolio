@@ -1,0 +1,9 @@
+@import "./app/shared/scss/global.scss";
+* {
+  margin: 0px;
+}
+
+html {
+  background-color: $primary-background-color;
+  overflow-x: hidden;
+}

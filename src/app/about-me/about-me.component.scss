@@ -1,0 +1,60 @@
+@import "./../shared/scss/global.scss";
+
+section {
+  @include dFlex($ai: top);
+  padding-top: 124px;
+  width: 100vw;
+  max-width: 1920px;
+  gap: 149px;
+}
+
+.about-me-content {
+  @include dFlex($fd: column);
+  height: 100%;
+  width: 50%;
+  z-index: 4;
+  div {
+    width: 471px;
+  }
+}
+
+.about-me-img {
+  @include dFlex();
+  width: 50%;
+  height: 453px;
+  z-index: 3;
+
+  img {
+    width: 453px;
+    height: 453px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid $accent-color;
+  }
+}
+
+.green-line-div {
+  width: 100%;
+  height: 3px;
+  background-color: $accent-color;
+}
+
+.content-title {
+  font-size: 90px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.about-me-text-personal {
+  margin-bottom: 32px;
+}
+
+.about-me-box {
+  @include dFlex($ai: top);
+  gap: 16px;
+  margin-bottom: 24px;
+  img {
+    width: 48px;
+    height: 48px;
+  }
+}

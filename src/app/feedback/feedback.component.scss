@@ -1,0 +1,108 @@
+@import "./../shared/scss/global.scss";
+
+section {
+  @include dFlex($fd: column);
+  width: 100vw;
+  max-width: 1920px;
+  min-height: 272px;
+  margin-bottom: 180px;
+  row-gap: 32px;
+}
+
+.testimonial-content {
+  @include dFlex($jc: end);
+  width: 100%;
+  gap: 48px;
+}
+
+.testimonial-box {
+  @include dFlex($fd: column);
+  position: relative;
+  width: 851px;
+  height: 272px;
+  border: 4px solid $accent-color;
+  border-radius: 32px;
+  padding: 46px 96px 46px 96px;
+}
+
+.testimonial-text-and-author {
+  @include dFlex($fd: column, $jc: space-between);
+  height: 100% !important;
+}
+
+.testimonial-sign {
+  position: relative;
+  right: -4%;
+  top: -120px;
+  width: 100px;
+  height: 69px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  z-index: 3;
+}
+
+.testimonial-img {
+  @include dFlex();
+  width: 30%;
+  height: 272px;
+  img {
+    min-width: 272px;
+    height: 272px;
+    object-fit: cover;
+    background-color: $accent-color;
+    border-radius: 50%;
+    border: 4px solid $secondary-color;
+  }
+}
+
+.purple-line-img {
+  width: 100%;
+  height: 4px;
+  background-color: $secondary-color;
+}
+
+.testimonial-navigation {
+  @include dFlex();
+  position: relative;
+  gap: 20px;
+  height: 60px;
+}
+
+.dot-position {
+  @include dFlex();
+  gap: 20px;
+}
+
+.arrow-left {
+  @include dFlex();
+}
+
+.arrow-right {
+  @include dFlex();
+}
+
+.testimonial-author {
+  @include dFlex();
+  width: 100%;
+  gap: 16px;
+
+  p {
+    white-space: nowrap;
+  }
+}
+
+.purple-line-author {
+  width: 100%;
+  height: 2px;
+  background-color: $secondary-color;
+}
+
+.arrow-left:hover .arrow-img-left {
+  content: url("./../../assets/img/feedback-section/arrow-left-clicked.png");
+}
+
+.arrow-right:hover .arrow-img-right {
+  content: url("./../../assets/img/feedback-section/arrow-right-clicked.png");
+}

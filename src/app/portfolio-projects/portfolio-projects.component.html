@@ -1,1 +1,16 @@
-<p>portfolio-projects works!</p>
+<section id="portfolio">
+  <div class="headline">
+    <div class="purple-line-left"></div>
+    <div><p>Portfolio</p></div>
+    <div class="purple-line-right"></div>
+  </div>
+  <div class="sub-headline">
+    <p>
+      Explore a selection of my work here - Interact with projects to see my
+      skills in action.
+    </p>
+  </div>
+  <div *ngFor="let projectIndex of [0, 1, 2]">
+    <app-single-project [dataIndex]="projectIndex"></app-single-project>
+  </div>
+</section>

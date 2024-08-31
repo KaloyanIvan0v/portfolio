@@ -1,1 +1,47 @@
-<p>my-skills works!</p>
+<section id="skills">
+  <div class="skill-icons-container">
+    <div
+      *ngFor="let skill of mySkillsData"
+      class="single-skill jump-to-top-on-hover"
+    >
+      <img src="{{ skill.image }}" alt="" />
+      <p>{{ skill.title }}</p>
+    </div>
+
+    <div class="single-skill">
+      <img
+        class="purple-filter"
+        src="./../../assets/img/02-skills-section/learning.svg"
+        alt=""
+      />
+      <p class="purple-typography">Continually Learning</p>
+      <div class="pop-up-interest">
+        <img
+          src="./../../assets/img/02-skills-section/special-interest.svg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-content-container">
+    <div class="skill-content-title">
+      My skills
+      <div class="purple-line"></div>
+    </div>
+    <div>
+      <p>
+        I have gained experience in building projects with different frontend
+        technologies and concepts.
+      </p>
+    </div>
+    <div class="sub-title">Looking for <span>another skill</span>?</div>
+    <div>
+      <p>
+        Feel free to contact me. I look forward to expanding on my previous
+        knowledge.
+      </p>
+    </div>
+    <button class="button-optic btn-green">Get in touch</button>
+  </div>
+</section>

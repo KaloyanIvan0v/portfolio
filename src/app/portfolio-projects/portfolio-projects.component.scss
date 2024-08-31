@@ -1,0 +1,32 @@
+@import "./../shared/scss/global.scss";
+
+section {
+  @include dFlex($fd: column);
+  width: 100vw;
+  max-width: 1920px;
+  margin-top: 180px;
+  margin-bottom: 180px;
+}
+
+.headline {
+  @include dFlex($jc: end);
+  width: 100%;
+  margin-bottom: 40px;
+  p {
+    font-size: 90px;
+    font-weight: 700;
+    padding: 0px 32px 0px 32px;
+  }
+}
+
+.purple-line-left {
+  width: 100px;
+  height: 3px;
+  background-color: $secondary-color;
+}
+
+.purple-line-right {
+  width: calc(50% - 226px);
+  height: 3px;
+  background-color: $secondary-color;
+}
