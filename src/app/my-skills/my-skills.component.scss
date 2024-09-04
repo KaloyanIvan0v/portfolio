@@ -1,6 +1,7 @@
 @import "./../shared/scss/global.scss";
 
 section {
+  position: relative;
   @include dFlex($jc: space-around);
   width: 100vw;
   max-width: 1920px;
@@ -122,4 +123,10 @@ section {
       transition: transform 0.3s ease;
     }
   }
+}
+
+.my-skills-shadow {
+  position: absolute;
+  left: 20px;
+  top: 200px;
 }
