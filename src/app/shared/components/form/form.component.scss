@@ -60,16 +60,41 @@ form {
     }
   }
 
+  .textarea-container {
+    @include dFlex($ai: start);
+    position: relative;
+    width: 100%;
+    min-height: 202px;
+  }
+
   textarea {
+    position: relative;
+    display: inline-block;
+    @include dFlex($fd: row);
     font-size: 16px;
     width: 100%;
     height: 202px;
     border: none;
+    resize: none;
     background-color: transparent;
     &::placeholder {
       color: $primary-color;
     }
   }
+}
+
+.resize-handle {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  bottom: -3px;
+  right: -16px;
+  background-image: url("./../../../../assets/img/04-contact-section/resizer.png");
+  cursor: se-resize;
+}
+
+.valid-img-wrapper {
+  width: max-content;
 }
 
 .input-div-error {

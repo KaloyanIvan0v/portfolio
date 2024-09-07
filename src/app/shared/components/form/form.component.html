@@ -84,24 +84,33 @@
       }"
       class="input-div"
     >
-      <textarea
-        placeholder="Your message"
-        [(ngModel)]="user.message"
-        name="message"
-        required
-        #message="ngModel"
-      ></textarea>
-      <div class="d-flex" *ngIf="message.invalid && message.touched">
-        <img
-          src="./../../../../assets/img/04-contact-section/invalid-input.svg"
-          alt="Invalid"
-        />
-      </div>
-      <div class="d-flex" *ngIf="message.valid && message.touched">
-        <img
-          src="./../../../../assets/img/04-contact-section/valid-input.svg"
-          alt="Valid"
-        />
+      <div class="textarea-container" #textareaWrapper>
+        <textarea
+          placeholder="Your message"
+          [(ngModel)]="user.message"
+          name="message"
+          required
+          #message="ngModel"
+          style="width: 100%; height: 100%"
+        ></textarea>
+        <div
+          class="resize-handle"
+          (mousedown)="onResizeStart($event, textareaWrapper)"
+        ></div>
+        <div class="valid-img-wrapper">
+          <div class="d-flex" *ngIf="message.invalid && message.touched">
+            <img
+              src="./../../../../assets/img/04-contact-section/invalid-input.svg"
+              alt="Invalid"
+            />
+          </div>
+          <div class="d-flex" *ngIf="message.valid && message.touched">
+            <img
+              src="./../../../../assets/img/04-contact-section/valid-input.svg"
+              alt="Valid"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div class="input-div-error" *ngIf="message.invalid && message.touched">

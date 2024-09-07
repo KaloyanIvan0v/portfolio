@@ -52,4 +52,21 @@ export class FormComponent {
         console.log(error);
       });
   }
+
+  onResizeStart(event: MouseEvent, container: HTMLElement) {
+    const startY = event.clientY;
+    const startHeight = container.offsetHeight;
+
+    const onMouseMove = (e: MouseEvent) => {
+      const newHeight = startHeight + (e.clientY - startY);
+      container.style.height = `${newHeight}px`;
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  }
 }
