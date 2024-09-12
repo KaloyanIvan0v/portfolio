@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -9,6 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   activeSection: string = 'about';
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+  }
+
+  changeLanguage(lang: string): void {
+    this.translate.use(lang);
+  }
 
   setActive(section: string) {
     this.activeSection = section;

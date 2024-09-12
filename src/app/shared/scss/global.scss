@@ -108,3 +108,19 @@ section {
 .d-flex {
   @include dFlex();
 }
+
+.d-none {
+  display: none;
+}
+
+.v-none {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 175ms ease-in-out, visibility 0ms 175ms;
+}
+
+.v-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 175ms ease-in-out;
+}

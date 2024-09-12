@@ -17,12 +17,19 @@ export class FormComponent {
     message: '',
   };
 
+  @Input() msgSendFeedback: { msg: string; active: boolean } = {
+    msg: 'Your message has been sent successfully. Thank you!',
+    active: false,
+  };
+
   onSubmit(userForm: NgForm) {
     if (this.checkbox && userForm.valid) {
+      this.showFeedback('asdfasdfsadf asdf asdf asdf');
       this.sendMail();
       this.clearForm(userForm);
     } else {
       userForm.form.markAllAsTouched();
+      this.showFeedback('asdfasdfsadf asdf asdf asdf');
     }
   }
 
@@ -46,11 +53,23 @@ export class FormComponent {
       },
     })
       .then(() => {
-        console.log('Success!');
+        this.showFeedback(
+          'Your message has been sent successfully. Thank you!'
+        );
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  showFeedback(msg: string) {
+    this.msgSendFeedback = {
+      msg: msg,
+      active: true,
+    };
+    setTimeout(() => {
+      this.msgSendFeedback.active = false;
+    }, 1835);
   }
 
   onResizeStart(event: MouseEvent, container: HTMLElement) {

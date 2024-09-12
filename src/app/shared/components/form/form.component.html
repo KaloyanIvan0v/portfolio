@@ -147,4 +147,13 @@
   >
     Send message :)
   </button>
+  <div
+    [ngClass]="{
+      'v-none': msgSendFeedback.active == false,
+      'v-active': msgSendFeedback.active
+    }"
+    class="form-send-feedback"
+  >
+    <p>{{ msgSendFeedback.msg }}</p>
+  </div>
 </form>
