@@ -1,9 +1,62 @@
 {
-  "ABOUT_ME": {
-    "TITLE": "About Me",
-    "PART1": "Hi, I’m a german speaking Frontend Developer based near Munich. Motivated by the limitless opportunities within IT, I am excited about crafting visually captivating and intuitive websites and applications.",
-    "PART2": "Flexible in terms of working environments, I can work effectively both on-site in Munich and remotely.",
-    "PART3": "I am open-minded and always looking for personal challenges to constantly improve my knowledge and skills.",
-    "PART4": "In my profession, programming isn't just about writing code; it's a creative form of problem-solving. I take pride in my ability to distill complex technical challenges into simple, user-friendly solutions. This way, I help you achieve your goals and bring your visions to life."
+  "header": {
+    "menu": {
+      "about": "About Me",
+      "skills": "Skills",
+      "portfolio": "Portfolio"
+    }
+  },
+
+  "hero": {
+    "introduction": "I am",
+    "cta-button": "Let's talk!"
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "introduction": "Hello, I am a German-speaking frontend developer based near Munich. With a strong interest in IT and all its facets, I specialize in creating websites and web-based applications.",
+    "flexible": "Working from home or on site at the company is no problem, I am open to both working models, including hybrid solutions.",
+    "open-minded": "I love working with new technologies and constantly developing myself, technologically as well as interpersonally. ",
+    "knowledge": "As a software developer, I don't see technical systems as problems, but as an exciting task to make these systems work. With sound expertise and good communication within the team, I solve complex problems and help to turn your vision into reality. "
+  },
+  "mySkills": {
+    "title": "My skills",
+    "part1": "I have gained experience in building projects with different frontend technologies and concepts.",
+    "part2a": "Looking for",
+    "part2b": "another skill",
+    "part2c": "?",
+    "part3": "Feel free to contact me. I look forward to expanding on my previous knowledge."
+  },
+
+  "portfolio": {
+    "join": {
+      "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. "
+    },
+    "polys-adventure": {
+      "description": "Polly's Adventure, is a web-based jump and run game"
+    },
+    "da-bubble": {
+      "description": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization."
+    }
+  },
+
+  "it": {
+    "sectionTitle": "Contact",
+    "title": "Got a problem to solve?",
+    "text": "Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to your projects with my work.",
+    "cta": {
+      "part1": "Need a Frontend developer? ",
+      "part2": "Contact me!"
+    }
+  },
+  "form": {
+    "name": "Your name ",
+    "email": "Your email ",
+    "message": "Your  message ",
+    "privacy": {
+      "part1": "I've read the ",
+      "part2": "privacy policy ",
+      "part3": "and agree to the processing of my data as outlined."
+    },
+    "send": "Send message :) "
   }
 }

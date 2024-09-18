@@ -8,8 +8,7 @@ export class DataService {
 
   projectsData = [
     {
-      imgPath:
-        './../../../assets/img/03-portfolio-section/application-view.png',
+      imgPath: './../../../assets/img/03-portfolio-section/join-screenshot.png',
       name: 'Join',
       techStack: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
       description:
@@ -17,7 +16,7 @@ export class DataService {
     },
     {
       imgPath:
-        './../../../assets/img/03-portfolio-section/application-view.png',
+        './../../../assets/img/03-portfolio-section/pollys-adventure-screenshot.png',
       name: 'Polys Adventure',
       techStack: ['HTML', 'CSS', 'JavaScript'],
       description:

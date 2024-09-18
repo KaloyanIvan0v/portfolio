@@ -76,7 +76,7 @@ section {
 
 .skill-content-container {
   @include dFlex($fd: column, $ai: end, $jc: end);
-  height: 404px;
+  height: min-content;
   width: 50%;
   align-items: right;
   padding-right: 100px;

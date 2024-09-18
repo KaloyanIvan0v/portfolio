@@ -1,9 +1,61 @@
 {
-  "ABOUT_ME": {
-    "TITLE": "Über mich",
-    "PART1": "Hallo, ich bin ein deutschsprachiger Frontend Entwickler aus der Nähe von München. Mit große intere   .",
-    "PART2": "Ich bin flexibel in Bezug auf Arbeitsumgebungen und kann sowohl vor Ort in München als auch remote effektiv arbeiten.",
-    "PART3": "Ich bin aufgeschlossen und immer auf der Suche nach persönlichen Herausforderungen, um mein Wissen und meine Fähigkeiten ständig zu verbessern.",
-    "PART4": "In meinem Beruf geht es beim Programmieren nicht nur um das Schreiben von Code; es ist eine kreative Form der Problemlösung. Ich bin stolz darauf, meine Fähigkeit, komplexe technische Herausforderungen in einfache, benutzerfreundliche Lösungen zu verwandeln, unter Beweis zu stellen. So helfe ich Ihnen, Ihre Ziele zu erreichen und Ihre Visionen zum Leben zu erwecken."
+  "header": {
+    "menu": {
+      "about": "Über mich",
+      "skills": "Skills",
+      "portfolio": "Portfolio"
+    }
+  },
+
+  "hero": {
+    "introduction": "Ich bin",
+    "cta-button": "schreib mir!"
+  },
+  "aboutMe": {
+    "title": "Über mich",
+    "introduction": "Hallo, ich bin ein deutschsprachiger Frontend-Entwickler aus der Nähe von München. Mit großem Interesse an der IT mit all ihrer Facetten ist das Erstellen von Webseiten und webbasierten Applikationen mein Fachgebiet. ",
+    "flexible": "Die Arbeit ist im Homeoffice oder vor Ort in der Firma kein Problem, ich bin für beide Arbeitsmodelle offen, gerne auch Hybridlösungen.",
+    "open-minded": "Ich liebe es, mich mit neuen Technologien zu beschäftigen und mich immer weiterzuentwickeln, sowohl technisch als auch zwischenmenschlich. ",
+    "knowledge": "Als Softwareentwickler sehe ich in technischen Systemen keine Probleme, sondern eine spannende Aufgabe, diese Systeme zum Laufen zu bringen. Mit fundiertem Know-how und guter Kommunikation im Team löse ich komplexe Probleme und helfe dabei, Ihre Vision wahr werden zu lassen. "
+  },
+  "mySkills": {
+    "title": "Meine Skills",
+    "part1": "Ich habe Erfahrung in der Erstellung von Projekten mit verschiedenen Frontend-Technologien und Konzepten gesammelt.",
+    "part2": "Suchen Sie nach einen anderen Skill?",
+    "part3": "Schreiben Sie mir gerne eine Nachricht. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.",
+    "": ""
+  },
+
+  "portfolio": {
+    "join": {
+      "description": "Join ist eine Webanwendung, die es Nutzern ermöglicht, auf einfache Weise Aufgaben zu erstellen und ihnen beizutreten."
+    },
+    "polys-adventure": {
+      "description": "Polly’s Adventure, ist ein webbasiertes Jump and Run Spiel"
+    },
+    "da-bubble": {
+      "description": "DA Bubble ist ein Slack Clone. Die Webanwendung revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeitnachrichten und robuster Kanalorganisation."
+    }
+  },
+
+  "contact": {
+    "sectionTitle": "Kontakt",
+    "title": "Haben Sie ein Problem zu lösen?",
+    "text": "Kontaktieren Sie mich gerne. Ich freue mich darauf von Ihre Projekte zu hören und womöglich ein Teil Ihres Teams zu werden.",
+    "cta": {
+      "part1": "Suchen Sie nach einen Frontend-Entwickler?",
+      "part2": "Schreiben Sie mir!"
+    }
+  },
+  "form": {
+    "name": "Dein Name",
+    "email": "Dein E-Mail",
+    "message": "Deine Nachricht",
+    "privacy": {
+      "part1": "Ich habe die",
+      "part2": "Datenschutzbestimmungen",
+      "part3": "gelesen und bin damit einverstanden."
+    },
+    "send": "Senden :)"
   }
 }

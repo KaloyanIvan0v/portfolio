@@ -5,8 +5,6 @@
     /></a>
   </div>
   <div class="menu">
-    <button (click)="changeLanguage('en')">English</button>
-    <button (click)="changeLanguage('de')">German</button>
     <ul>
       <li (click)="setActive('about me')">
         <a href="#about">About Me</a>
@@ -24,5 +22,11 @@
         <div [ngClass]="{ 'purple-line': activeSection === 'portfolio' }"></div>
       </li>
     </ul>
+    <div class="language-switch">
+      <div class="switch">
+        <input type="checkbox" id="toggle" (change)="toggleLanguage()" />
+        <label for="toggle" class="slider"></label>
+      </div>
+    </div>
   </div>
 </nav>
