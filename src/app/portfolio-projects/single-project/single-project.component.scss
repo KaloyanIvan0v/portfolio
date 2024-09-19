@@ -10,6 +10,7 @@ section {
 .project-data {
   @include dFlex($fd: column, $ai: top);
   row-gap: 15px;
+  max-width: 500px;
 }
 
 .project-title {

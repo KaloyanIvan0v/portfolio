@@ -1,13 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DataService } from '../shared/services/data.service';
 import { SingleProjectComponent } from '../portfolio-projects/single-project/single-project.component';
-
+import { FormComponent } from '../shared/components/form/form.component';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-portfolio-projects',
   standalone: true,
-  imports: [SingleProjectComponent, CommonModule],
+  imports: [
+    SingleProjectComponent,
+    CommonModule,
+    FormComponent,
+    TranslateModule,
+  ],
   templateUrl: './portfolio-projects.component.html',
   styleUrl: './portfolio-projects.component.scss',
 })
-export class PortfolioProjectsComponent {}
+export class PortfolioProjectsComponent {
+  constructor(public translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+  }
+}

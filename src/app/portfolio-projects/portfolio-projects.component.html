@@ -5,10 +5,7 @@
     <div class="purple-line-right"></div>
   </div>
   <div class="sub-headline">
-    <p>
-      Explore a selection of my work here - Interact with projects to see my
-      skills in action.
-    </p>
+    <p>{{ "portfolio.introduction" | translate }}</p>
   </div>
   <div *ngFor="let projectIndex of [0, 1, 2]">
     <app-single-project [dataIndex]="projectIndex"></app-single-project>

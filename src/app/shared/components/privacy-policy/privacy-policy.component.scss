@@ -1,0 +1,35 @@
+@import "./../../../shared/scss/global.scss";
+
+section {
+  @include dFlex();
+  padding: 110px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1920px;
+}
+
+a {
+  color: $accent-color;
+}
+
+h3 {
+  color: $secondary-color;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: $secondary-color;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: $secondary-color;
+  font-weight: 600;
+  font-size: 48px;
+  margin-bottom: 24px;
+}

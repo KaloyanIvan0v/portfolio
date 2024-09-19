@@ -26,23 +26,23 @@
 
   <div class="skill-content-container">
     <div class="skill-content-title">
-      My skills
+      {{ "mySkills.title" | translate }}
       <div class="purple-line"></div>
     </div>
     <div>
-      <p>
-        I have gained experience in building projects with different frontend
-        technologies and concepts.
-      </p>
+      <p>{{ "mySkills.part1" | translate }}</p>
     </div>
-    <div class="sub-title">Looking for <span>another skill</span>?</div>
+    <div class="sub-title">
+      {{ "mySkills.part2a" | translate }}
+      <span>{{ "mySkills.part2b" | translate }}</span
+      >?
+    </div>
     <div>
-      <p>
-        Feel free to contact me. I look forward to expanding on my previous
-        knowledge.
-      </p>
+      <p>{{ "mySkills.part3" | translate }}</p>
     </div>
-    <a class="button-optic btn-green" href="#contact">Get in touch</a>
+    <a class="button-optic btn-green get-in-touch" href="#contact">{{
+      "mySkills.cta-button" | translate
+    }}</a>
   </div>
   <div class="my-skills-shadow">
     <img src="assets/img/02-skills-section/my-skills-shadow.svg" alt="" />
