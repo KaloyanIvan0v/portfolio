@@ -89,7 +89,7 @@ nav ul li {
   height: 26px;
   width: 26px;
   border-radius: 50%;
-  background-image: url("./../../../../assets/img/header-section/uk-flag.png");
+  background-image: url("./../../../../assets/img/06-header-section/uk-flag.png");
   background-size: cover;
   top: 2px;
   left: 2px;
@@ -98,5 +98,5 @@ nav ul li {
 
 input:checked + .slider:before {
   transform: translateX(30px);
-  background-image: url("./../../../../assets/img/header-section/german-flag.png");
+  background-image: url("./../../../../assets/img/06-header-section/german-flag.png");
 }

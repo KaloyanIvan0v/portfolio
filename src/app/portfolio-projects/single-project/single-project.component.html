@@ -32,8 +32,20 @@
       {{ "portfolio.project-descriptions." + dataIndex | translate }}
     </div>
     <div class="project-buttons">
-      <button class="button-optic btn-purple live-test">Live test</button>
-      <button class="button-optic btn-empty git-hub">GitHub</button>
+      <a
+        target="_blank"
+        rel="noopener"
+        href="{{ data[dataIndex].liveTestUrl }}"
+        class="button-optic btn-purple live-test"
+        >Live test</a
+      >
+      <a
+        target="_blank"
+        rel="noopener"
+        href="{{ data[dataIndex].gitHubUrl }}"
+        class="button-optic btn-empty git-hub"
+        >GitHub</a
+      >
     </div>
   </div>
 </section>

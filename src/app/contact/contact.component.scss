@@ -1,10 +1,13 @@
 @import "./../shared/scss/global.scss";
 
 section {
+  position: relative;
   @include dFlex($fd: column);
   width: 100vw;
   max-width: 1920px;
   margin-bottom: 180px;
+  z-index: 4;
+  background-color: $primary-background-color;
 }
 
 .headline {
@@ -58,4 +61,11 @@ section {
 
 .call-to-action-span {
   font-weight: 700;
+}
+
+.contact-shadow {
+  position: absolute;
+  left: 0px;
+  top: 300px;
+  z-index: -1;
 }

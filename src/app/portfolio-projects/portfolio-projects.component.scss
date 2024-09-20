@@ -1,6 +1,7 @@
 @import "./../shared/scss/global.scss";
 
 section {
+  position: relative;
   @include dFlex($fd: column);
   width: 100vw;
   max-width: 1920px;
@@ -29,4 +30,11 @@ section {
   width: calc(50% - 226px);
   height: 3px;
   background-color: $secondary-color;
+}
+
+.portfolio-shadow {
+  position: absolute;
+  left: 20px;
+  top: 700px;
+  z-index: -1;
 }

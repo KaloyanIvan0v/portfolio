@@ -7,7 +7,7 @@ section {
   max-width: 1920px;
   margin-top: 180px;
   margin-bottom: 180px;
-  margin-left: 100px;
+  padding-left: 100px;
 }
 
 .skill-icons-container {
@@ -129,6 +129,7 @@ section {
   position: absolute;
   left: 20px;
   top: 200px;
+  z-index: -1;
 }
 .get-in-touch {
   font-size: 22px !important;

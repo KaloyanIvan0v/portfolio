@@ -1,7 +1,7 @@
 <section>
   <div class="testimonial-content">
     <div class="testimonial-sign">
-      <img src="./../../assets/img/feedback-section/comment.png" alt="" />
+      <img src="./../../assets/img/04-feedback-section/comment.png" alt="" />
     </div>
     <div class="testimonial-box">
       <div class="testimonial-text-and-author">
@@ -30,28 +30,31 @@
     <div (click)="prevTestimonial()" class="arrow-left">
       <img
         class="arrow-img-left"
-        src="./../../assets/img/feedback-section/arrow-left.png"
+        src="./../../assets/img/04-feedback-section/arrow-left.png"
         alt=""
       />
     </div>
     <div *ngFor="let item of testimonialData" class="dot-position">
       <img
         *ngIf="currentTestimonial != item"
-        src="./../../assets/img/feedback-section/green-dot.png"
+        src="./../../assets/img/04-feedback-section/green-dot.png"
         alt=""
       />
       <img
         *ngIf="currentTestimonial == item"
-        src="./../../assets/img/feedback-section/purple-dot.png"
+        src="./../../assets/img/04-feedback-section/purple-dot.png"
         alt=""
       />
     </div>
     <div (click)="nextTestimonial()" class="arrow-right">
       <img
         class="arrow-img-right"
-        src="./../../assets/img/feedback-section/arrow-right.png"
+        src="./../../assets/img/04-feedback-section/arrow-right.png"
         alt=""
       />
     </div>
+  </div>
+  <div class="feedback-shadow">
+    <img src="assets/img/04-feedback-section/feedback-shadow.svg" alt="" />
   </div>
 </section>

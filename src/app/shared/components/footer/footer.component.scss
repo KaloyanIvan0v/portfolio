@@ -1,11 +1,14 @@
 @import "./../../../shared/scss/global.scss";
 
 section {
+  position: relative;
   @include dFlex($jc: space-around);
   width: 100vw;
   height: 291px;
   max-width: 1920px;
   border-top: 4px solid $accent-color;
+  z-index: 5;
+  background-color: $primary-background-color;
 }
 
 .left-footer {

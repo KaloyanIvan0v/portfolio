@@ -1,6 +1,7 @@
 @import "./../shared/scss/global.scss";
 
 section {
+  position: relative;
   @include dFlex($fd: column);
   width: 100vw;
   max-width: 1920px;
@@ -100,9 +101,16 @@ section {
 }
 
 .arrow-left:hover .arrow-img-left {
-  content: url("./../../assets/img/feedback-section/arrow-left-clicked.png");
+  content: url("./../../assets/img/04-feedback-section/arrow-left-clicked.png");
 }
 
 .arrow-right:hover .arrow-img-right {
-  content: url("./../../assets/img/feedback-section/arrow-right-clicked.png");
+  content: url("./../../assets/img/04-feedback-section/arrow-right-clicked.png");
+}
+
+.feedback-shadow {
+  position: absolute;
+  right: 0px;
+  top: -550px;
+  z-index: -1;
 }
