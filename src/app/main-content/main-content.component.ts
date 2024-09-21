@@ -5,6 +5,7 @@ import { MySkillsComponent } from '../my-skills/my-skills.component';
 import { PortfolioProjectsComponent } from '../portfolio-projects/portfolio-projects.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 import { ContactComponent } from '../contact/contact.component';
+import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
 
 @Component({
   selector: 'app-main-content',
@@ -16,6 +17,7 @@ import { ContactComponent } from '../contact/contact.component';
     PortfolioProjectsComponent,
     FeedbackComponent,
     ContactComponent,
+    MobileMenuComponent,
   ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss',

@@ -1,0 +1,46 @@
+@import "./../shared/scss/global.scss";
+section {
+  @include dFlex($fd: column);
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(20, 29, 47, 0.95);
+  z-index: 1000;
+  font-size: 23px;
+  gap: 33px;
+  transform: translateX(100%);
+  transition: transform 0.175s ease;
+
+  &.v-visible-mobile-menu {
+    transform: translateX(0);
+  }
+
+  &.v-none-mobile-menu {
+    transform: translateX(100%);
+  }
+}
+
+.mobile-menu-header {
+  @include dFlex($jc: space-between);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 109px;
+  padding: 0px 100px 0px 100px;
+  background-color: $primary-background-color;
+  img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.close-cross {
+  img {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+  }
+}

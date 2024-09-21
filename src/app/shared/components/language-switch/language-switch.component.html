@@ -1,0 +1,11 @@
+<div class="language-switch">
+  <div class="switch">
+    <input
+      type="checkbox"
+      id="toggle"
+      [checked]="currentLanguage === 'de'"
+      (change)="toggleLanguage()"
+    />
+    <label for="toggle" class="slider"></label>
+  </div>
+</div>

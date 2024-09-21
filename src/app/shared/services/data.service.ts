@@ -1,10 +1,25 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor() {}
+  constructor() {
+    const savedLanguage =
+      (sessionStorage.getItem('language') as 'en' | 'de') || 'en';
+    this.languageSubject.next(savedLanguage);
+  }
+
+  private languageSubject = new BehaviorSubject<'en' | 'de'>('en');
+  currentLanguage$ = this.languageSubject.asObservable();
+
+  changeLanguage(language: 'en' | 'de') {
+    this.languageSubject.next(language);
+    sessionStorage.setItem('language', language);
+  }
+
+  mobileMenuVisible: boolean = false;
 
   projectsData = [
     {

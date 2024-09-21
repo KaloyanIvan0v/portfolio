@@ -1,0 +1,29 @@
+<section
+  [ngClass]="{
+    'v-visible-mobile-menu': this.dataService.mobileMenuVisible,
+    'v-none-mobile-menu': !this.dataService.mobileMenuVisible
+  }"
+>
+  <div class="mobile-menu-header">
+    <div>
+      <img src="./../../assets/img/06-header-section/kaloyan.png" alt="" />
+    </div>
+    <div class="close-cross" (click)="hideMobileMenu()">
+      <img src="./../../assets/img/07-other/close-mobil-cross.png" alt="" />
+    </div>
+  </div>
+  <div class="close"></div>
+  <div (click)="hideMobileMenu()" class="close">
+    <a href="#about"> {{ "header.menu.about" | translate }}</a>
+  </div>
+  <div (click)="hideMobileMenu()" class="close">
+    <a href="#skills">Skills</a>
+  </div>
+  <div (click)="hideMobileMenu()" class="close">
+    <a href="#portfolio">Portfolio</a>
+  </div>
+  <div (click)="hideMobileMenu()" class="close">
+    <a href="#contact">{{ "contact.sectionTitle" | translate }}</a>
+  </div>
+  <app-language-switch></app-language-switch>
+</section>

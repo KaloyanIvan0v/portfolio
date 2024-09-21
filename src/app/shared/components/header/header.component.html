@@ -1,7 +1,7 @@
 <nav>
   <div class="name">
     <a href="#hero"
-      ><img src="./../../../../assets/img/kaloyan.png" alt=""
+      ><img src="./../../../../assets/img/06-header-section/kaloyan.png" alt=""
     /></a>
   </div>
   <div class="menu">
@@ -22,11 +22,12 @@
         <div [ngClass]="{ 'purple-line': activeSection === 'portfolio' }"></div>
       </li>
     </ul>
-    <div class="language-switch">
-      <div class="switch">
-        <input type="checkbox" id="toggle" (change)="toggleLanguage()" />
-        <label for="toggle" class="slider"></label>
-      </div>
-    </div>
+    <app-language-switch></app-language-switch>
+  </div>
+  <div (click)="showMobileMenu()" class="burger-menu">
+    <img
+      src="./../../../../assets/img/06-header-section/burger-menu.png"
+      alt=""
+    />
   </div>
 </nav>

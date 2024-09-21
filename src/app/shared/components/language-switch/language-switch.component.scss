@@ -1,0 +1,47 @@
+@import "./../../scss/global.scss";
+.language-switch {
+  @include dFlex();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #dbdbdb;
+  border-radius: 30px;
+  transition: background-color 0.4s ease;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background-image: url("./../../../../assets/img/06-header-section/uk-flag.png");
+  background-size: cover;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.4s ease, background-image 0.4s ease;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  background-image: url("./../../../../assets/img/06-header-section/german-flag.png");
+}
