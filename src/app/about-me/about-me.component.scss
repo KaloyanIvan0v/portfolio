@@ -60,6 +60,18 @@ section {
   }
 }
 
+@media (max-width: 1400px) {
+  .about-me-img {
+    height: 100%;
+    width: 353px;
+    @include dFlex($ai: center);
+  }
+
+  section {
+    @include dFlex($ai: center);
+  }
+}
+
 @media (max-width: 1200px) {
   .about-me-img {
     img {
@@ -70,12 +82,42 @@ section {
 
   section {
     gap: 49px;
-    margin-left: 100px;
+    //margin-left: 100px;
   }
 }
 
 @media (max-width: 1000px) {
   .content-title {
     font-size: 60px;
+  }
+
+  .about-me-img {
+    width: 305;
+    > img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  .about-me-content {
+    width: 70%;
+  }
+}
+
+@media (max-width: 860px) {
+  .about-me-img {
+    display: none;
+  }
+
+  .content-title {
+    font-size: 46px;
+  }
+
+  .about-me-content {
+    width: 100%;
+    z-index: 4;
+    div {
+      width: 90%;
+    }
   }
 }

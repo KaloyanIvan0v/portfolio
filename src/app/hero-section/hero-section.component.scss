@@ -27,6 +27,7 @@ section {
   padding-top: 240px;
   position: relative;
   width: 30vw;
+  top: 5vh;
   min-width: 500px;
   max-width: 646px;
   display: flex;
@@ -118,6 +119,7 @@ section {
   width: 100%;
   z-index: 3;
   padding-right: 100px;
+  padding-bottom: 8px;
 }
 
 .bottom-left {
@@ -143,9 +145,9 @@ section {
 
 .purple-shadow {
   overflow: hidden;
-  position: absolute;
+  position: relative;
   bottom: -470px;
-  right: -270px;
+  right: -50%;
   > img {
     width: 600px;
     height: auto;
@@ -218,5 +220,145 @@ section {
     width: 140px;
     font-size: 18px;
     padding: 8px 13px 8px 13px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .bottom-wave {
+    top: 48vh;
+  }
+
+  .intro-name {
+    p {
+      font-size: 42px;
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: 32px;
+    }
+  }
+
+  .intro-greeting {
+    p {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .hero-left {
+    margin: 0px;
+  }
+
+  .image-wrapper {
+    position: absolute;
+    top: calc(60% - 0.1vw - 200px);
+    min-width: 70vw;
+    max-width: 646px;
+
+    > img {
+      position: absolute;
+      height: auto;
+    }
+  }
+
+  .bottom-wave {
+    bottom: 30vh;
+    width: 100%;
+  }
+
+  .background-image {
+    width: 140%;
+    top: -10vh;
+  }
+
+  .bottom-right {
+    display: none;
+  }
+
+  .hero-right {
+    margin-top: -3vh;
+    width: 100%;
+    gap: 32px;
+  }
+
+  .intro-text {
+    width: max-content;
+    @include dFlex($jc: center);
+    margin-right: 5vw;
+    margin-bottom: 22px;
+  }
+
+  .intro-name {
+    p {
+      font-size: calc(100vw / 10);
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: calc(100vw / 14);
+    }
+  }
+
+  .intro-greeting {
+    p {
+      font-size: calc(100vw / 14);
+    }
+  }
+
+  .cta-btn {
+    font-size: calc(100vw / 25);
+    padding: 15px 30px 15px 30px;
+  }
+}
+
+@media (max-width: 630px) {
+  .e-mail-p {
+    display: none;
+  }
+}
+
+@media (max-height: 680px) {
+  .image-wrapper {
+    top: calc(65% - 0.1vw - 200px);
+    min-width: 70vw;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 600px) {
+  .hero-right {
+    margin-top: 15vh;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-btn {
+    font-size: calc(100vw / 35);
+    padding: 15px 30px 15px 30px;
+  }
+
+  .intro-name {
+    p {
+      font-size: calc(100vw / 12);
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: calc(100vw / 16);
+    }
+  }
+
+  .intro-greeting {
+    p {
+      font-size: calc(100vw / 16);
+    }
   }
 }

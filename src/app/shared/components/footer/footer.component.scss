@@ -51,3 +51,30 @@ section {
   opacity: 0;
   visibility: hidden;
 }
+
+.mobile-imprint {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .mobile-imprint {
+    display: block;
+  }
+
+  .desktop-imprint {
+    display: none;
+  }
+  section {
+    @include dFlex($fd: column);
+    gap: 23px;
+  }
+
+  .dev-name {
+    @include dFlex($ai: center);
+    margin-bottom: 10px;
+    margin: 0px;
+  }
+  .left-footer {
+    @include dFlex($ai: center);
+  }
+}

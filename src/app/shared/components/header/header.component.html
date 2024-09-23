@@ -4,7 +4,7 @@
       ><img src="./../../../../assets/img/06-header-section/kaloyan.png" alt=""
     /></a>
   </div>
-  <div class="menu">
+  <div class="menu" *ngIf="showMenu">
     <ul>
       <li (click)="setActive('about me')">
         <a href="#about"> {{ "header.menu.about" | translate }}</a>
@@ -24,10 +24,11 @@
     </ul>
     <app-language-switch></app-language-switch>
   </div>
-  <div (click)="showMobileMenu()" class="burger-menu">
+  <div (click)="showMobileMenu()" class="burger-menu" *ngIf="showMenu">
     <img
       src="./../../../../assets/img/06-header-section/burger-menu.png"
       alt=""
     />
   </div>
+  <app-language-switch *ngIf="!showMenu"></app-language-switch>
 </nav>

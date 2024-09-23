@@ -1,8 +1,8 @@
 @import "./../../../shared/scss/global.scss";
 
 section {
-  @include dFlex($ai: start);
-  padding: 110px;
+  @include dFlex();
+  padding: 0px 2% 0% 2%;
   min-height: 100vh;
   width: 100%;
 }

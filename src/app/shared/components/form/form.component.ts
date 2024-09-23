@@ -28,12 +28,11 @@ export class FormComponent {
 
   onSubmit(userForm: NgForm) {
     if (this.checkbox && userForm.valid) {
-      this.showFeedback('asdfasdfsadf asdf asdf asdf');
+      this.showFeedback('');
       this.sendMail();
       this.clearForm(userForm);
     } else {
       userForm.form.markAllAsTouched();
-      this.showFeedback('asdfasdfsadf asdf asdf asdf');
     }
   }
 
