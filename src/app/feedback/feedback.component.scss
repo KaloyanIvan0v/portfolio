@@ -32,9 +32,9 @@ section {
 }
 
 .testimonial-sign {
-  position: relative;
-  right: -4%;
-  top: -120px;
+  position: absolute;
+  left: -40px;
+  top: -30px;
   width: 100px;
   height: 69px;
   img {
@@ -113,4 +113,88 @@ section {
   right: 0px;
   top: -550px;
   z-index: -1;
+}
+
+@media (max-width: 1200px) {
+  section {
+    row-gap: 0px;
+  }
+  .testimonial-content {
+    @include dFlex($fd: column-reverse, $ai: center);
+    gap: 0px;
+  }
+
+  .testimonial-img {
+    width: 100%;
+    @include dFlex($jc: end);
+    margin-bottom: 24px;
+  }
+
+  .purple-line-img {
+    width: calc(50% - 136px);
+  }
+
+  .testimonial-sign {
+    width: 100px;
+    height: 69px;
+  }
+  .testimonial-box {
+    width: 85%;
+    min-height: 272px;
+    height: auto;
+    border: 4px solid $accent-color;
+    border-radius: 32px;
+    padding: 26px 76px 26px 76px;
+  }
+}
+
+@media (max-width: 860px) {
+  .testimonial-box {
+    padding: 6px 56px 6px 56px;
+  }
+
+  .testimonial-sign {
+    width: 85px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .testimonial-sign {
+    top: -20px;
+    left: -20px;
+    width: 55px;
+    height: 35px;
+  }
+  .testimonial-box {
+    padding: 16px 26px 16px 26px;
+  }
+
+  .testimonial-img {
+    @include dFlex($jc: end);
+    width: calc(100%);
+    height: 200px;
+    img {
+      min-width: 200px;
+      height: 200px;
+    }
+  }
+  .purple-line-img {
+    width: calc(50% - 100px);
+    height: 4px;
+    background-color: $secondary-color;
+  }
+}
+
+@media (max-width: 400px) {
+  .testimonial-author {
+    @include dFlex($fd: column, $ai: start);
+    padding-top: 12px;
+    gap: 0px;
+    padding-bottom: 8px;
+  }
+
+  .purple-line-author {
+    width: 30%;
+  }
 }
