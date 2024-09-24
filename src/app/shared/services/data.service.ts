@@ -45,8 +45,7 @@ export class DataService {
     {
       liveTestUrl: '',
       gitHubUrl: '',
-      imgPath:
-        './../../../assets/img/03-portfolio-section/application-view.png',
+      imgPath: './../../../assets/img/03-portfolio-section/join-screenshot.png',
       name: 'DA Bubble',
       techStack: ['Angular', 'TypeScript', 'Firebase'],
       description:

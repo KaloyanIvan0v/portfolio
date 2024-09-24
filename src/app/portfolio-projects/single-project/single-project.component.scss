@@ -5,6 +5,7 @@ section {
   width: 100vw;
   max-width: 1920px;
   gap: 48px;
+  z-index: 2;
 }
 
 .project-data {
@@ -39,6 +40,68 @@ section {
   gap: 86px;
 }
 
-.project-image {
-  padding: 0px 30px 0px 90px;
+@media (max-width: 1300px) {
+  section {
+    gap: 0px;
+  }
+
+  .project-image {
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+@media (max-width: 1150px) {
+  section {
+    @include dFlex($fd: column);
+  }
+
+  .project-data {
+    align-items: center !important;
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 650px) {
+  .project-image {
+    img {
+      width: 95%;
+      height: auto;
+    }
+  }
+
+  section {
+    > div {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-buttons {
+    gap: 64px;
+    a {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .tech-stack {
+    div {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .project-title {
+    font-size: 28px;
+  }
+  .project-buttons {
+    gap: 48px;
+    a {
+      font-size: 16px;
+      gap: 0px;
+    }
+  }
 }
