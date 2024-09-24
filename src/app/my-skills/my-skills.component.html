@@ -1,43 +1,20 @@
 <section id="skills">
-  <div class="skill-icons-container">
-    <div
-      *ngFor="let skill of mySkillsData"
-      class="single-skill jump-to-top-on-hover"
-    >
-      <img src="{{ skill.image }}" alt="" />
-      <p>{{ skill.title }}</p>
-    </div>
-
-    <div class="single-skill">
-      <img
-        class="purple-filter"
-        src="./../../assets/img/02-skills-section/learning.svg"
-        alt=""
-      />
-      <p class="purple-typography">Continually Learning</p>
-      <div class="pop-up-interest">
-        <img
-          src="./../../assets/img/02-skills-section/special-interest.svg"
-          alt=""
-        />
-      </div>
-    </div>
-  </div>
-
+  <app-skills-grid class="skill-icons-container-desktop"></app-skills-grid>
   <div class="skill-content-container">
     <div class="skill-content-title">
-      {{ "mySkills.title" | translate }}
+      <div class="purple-line-title">{{ "mySkills.title" | translate }}</div>
       <div class="purple-line"></div>
     </div>
-    <div>
+    <div class="experience-div">
       <p>{{ "mySkills.part1" | translate }}</p>
     </div>
+    <app-skills-grid class="skill-icons-container-mobile"></app-skills-grid>
     <div class="sub-title">
       {{ "mySkills.part2a" | translate }}
       <span>{{ "mySkills.part2b" | translate }}</span
       >?
     </div>
-    <div>
+    <div class="cta-div">
       <p>{{ "mySkills.part3" | translate }}</p>
     </div>
     <a class="button-optic btn-green get-in-touch" href="#contact">{{

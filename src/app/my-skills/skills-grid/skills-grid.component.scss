@@ -1,0 +1,84 @@
+@import "./../../shared/scss/global.scss";
+
+section {
+  @include dFlex();
+  max-width: 1920px;
+}
+
+.skill-icons-container {
+  max-width: 664px;
+  @include dFlex($jc: center, $ai: center);
+  flex-wrap: wrap;
+  gap: 40px 88px;
+}
+
+.single-skill {
+  position: relative;
+  @include dFlex($fd: column, $ai: center);
+  width: 88px;
+  height: 101px;
+  img {
+    width: auto;
+    height: 60px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  &:hover {
+    .pop-up-interest {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.354s ease;
+    }
+    .purple-filter {
+      filter: none;
+    }
+    .purple-typography {
+      color: $primary-color;
+    }
+  }
+}
+
+.jump-to-top-on-hover {
+  transition: transform 0.125s ease;
+  &:hover {
+    img {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+.pop-up-interest {
+  width: 188px;
+  height: 129px;
+  position: absolute;
+  top: -120px;
+  left: -5px;
+  opacity: 0;
+  visibility: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.purple-filter {
+  filter: invert(40%) sepia(109%) saturate(5794%) hue-rotate(246deg)
+    brightness(90%) contrast(101%);
+}
+
+.purple-typography {
+  color: $secondary-color;
+}
+
+@media (max-width: 350px) {
+  .skill-icons-container {
+    gap: 40px 48px;
+  }
+}

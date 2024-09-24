@@ -1,0 +1,26 @@
+<section>
+  <div class="skill-icons-container">
+    <div
+      *ngFor="let skill of mySkillsData"
+      class="single-skill jump-to-top-on-hover"
+    >
+      <img src="{{ skill.image }}" alt="" />
+      <p>{{ skill.title }}</p>
+    </div>
+
+    <div class="single-skill">
+      <img
+        class="purple-filter"
+        src="./../../assets/img/02-skills-section/learning.svg"
+        alt=""
+      />
+      <p class="purple-typography">Continually Learning</p>
+      <div class="pop-up-interest">
+        <img
+          src="./../../assets/img/02-skills-section/special-interest.svg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
