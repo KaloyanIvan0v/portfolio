@@ -110,8 +110,8 @@ section {
 
 .feedback-shadow {
   position: absolute;
-  right: 0px;
-  top: -550px;
+  right: calc(-1 * ((100vw - 100%) / 2));
+  top: -600px;
   z-index: -1;
 }
 

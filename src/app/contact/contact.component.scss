@@ -66,9 +66,24 @@ section {
 
 .contact-shadow {
   position: absolute;
-  left: 0px;
-  top: 300px;
-  z-index: -1;
+  left: calc(-1 * ((100vw - 80%) / 2));
+  top: 200px;
+  z-index: 1;
+}
+
+.up-button {
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  right: 100px;
+  bottom: -90px;
+  z-index: 5;
+  background-image: url("./../../assets/img/05-contact-section/buttons/go-up-buttons/go-up-default.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  &:hover {
+    background-image: url("./../../assets/img/05-contact-section/buttons/go-up-buttons/go-up-hover.png");
+  }
 }
 
 @media (max-width: 1300px) {
@@ -78,9 +93,14 @@ section {
   .contact-main-content {
     gap: 24px;
   }
+
+  .contact-main-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
   .contact-main-content {
     @include dFlex($fd: column, $ai: start, $jc: start);
     padding-left: 10%;
@@ -98,6 +118,11 @@ section {
       height: 100%;
     }
   }
+
+  .up-button {
+    right: 60px;
+    bottom: -110px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -108,12 +133,21 @@ section {
   .contact-left-container {
     width: 320px;
   }
+
+  .up-button {
+    right: 30px;
+    bottom: -130px;
+  }
 }
 
 @media (max-width: 480px) {
   .call-to-action-header {
     p {
       font-size: 24px;
+    }
+    .up-button {
+      right: 30px;
+      bottom: -160px;
     }
   }
 

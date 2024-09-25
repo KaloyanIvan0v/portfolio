@@ -8,6 +8,7 @@ section {
   margin-top: 180px;
   margin-bottom: 180px;
   box-sizing: border-box;
+  z-index: 4;
 }
 
 .skill-content-container {
@@ -65,8 +66,8 @@ section {
 
 .my-skills-shadow {
   position: absolute;
-  left: 0px;
-  top: 200px;
+  left: calc(-1 * ((100vw - 100%) / 2));
+  top: 50px;
   z-index: -1;
 }
 .get-in-touch {

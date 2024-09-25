@@ -34,8 +34,8 @@ section {
 
 .portfolio-shadow {
   position: absolute;
-  left: 0px;
-  top: 700px;
+  left: calc(-1 * ((100vw - 100%) / 2));
+  top: 400px;
   z-index: -2;
 }
 

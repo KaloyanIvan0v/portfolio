@@ -2,13 +2,19 @@
 
 section {
   position: relative;
-  @include dFlex($jc: space-around);
+  @include dFlex();
   width: 100vw;
   height: 291px;
-  max-width: 1920px;
   border-top: 4px solid $accent-color;
   z-index: 5;
   background-color: $primary-background-color;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1920px;
+  @include dFlex($jc: space-around);
+  box-sizing: border-box;
 }
 
 .left-footer {
@@ -64,7 +70,7 @@ section {
   .desktop-imprint {
     display: none;
   }
-  section {
+  .wrapper {
     @include dFlex($fd: column);
     gap: 23px;
   }
