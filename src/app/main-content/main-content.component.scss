@@ -1,5 +1,12 @@
 @import "./../shared/scss/global.scss";
+
 section {
-  @include dFlex($fd: column);
   width: 100vw;
+  @include dFlex();
+}
+
+.section-wrapper {
+  width: 100%;
+  max-width: 1920px;
+  overflow: hidden;
 }
