@@ -123,3 +123,21 @@ section {
   visibility: visible;
   transition: opacity 175ms ease-in-out;
 }
+
+@media (max-width: 1000px) {
+  .g-title {
+    font-size: 56px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .g-title {
+    font-size: 42px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .g-title {
+    font-size: 32px !important;
+  }
+}

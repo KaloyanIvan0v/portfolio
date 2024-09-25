@@ -66,9 +66,9 @@
     "message": "Deine Nachricht",
     "messageRequired": "Nachricht ist erforderlich.",
     "privacy": {
-      "part1": "Ich habe die",
-      "part2": "Datenschutzbestimmungen",
-      "part3": "gelesen und bin damit einverstanden."
+      "policyText": "Ich habe die ",
+      "policyLinkText": "Datenschutzbestimmungen",
+      "policyTextContinuation": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu."
     },
     "accept": "Bitte akzeptiere die Datenschutzbestimmungen.",
     "send": "Senden :)"

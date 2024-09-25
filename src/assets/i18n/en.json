@@ -66,9 +66,9 @@
     "message": "Your  message ",
     "messageRequired": "Message is required.",
     "privacy": {
-      "part1": "I've read the ",
-      "part2": "privacy policy ",
-      "part3": "and agree to the processing of my data as outlined."
+      "policyText": "I've read the ",
+      "policyLinkText": "privacy policy",
+      "policyTextContinuation": " and agree to the processing of my data as outlined."
     },
     "accept": "Please accept the privacy policy.",
     "send": "Send message :) "

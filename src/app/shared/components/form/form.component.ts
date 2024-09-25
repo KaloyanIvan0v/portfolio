@@ -2,17 +2,28 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-form',
   standalone: true,
+
   imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.scss',
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
-  constructor(public translate: TranslateService) {
-    this.translate.setDefaultLang('en');
+  link = 'privacy-policy';
+  sanitizedHtml: SafeHtml = '';
+  constructor(
+    public translate: TranslateService,
+    private sanitizer: DomSanitizer
+  ) {
+    this.translate
+      .get('form.privacy.policy', { link: 'privacy-policy' })
+      .subscribe((res: string) => {
+        this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(res);
+      });
   }
   @Input() checkbox: boolean = false;
   user = {

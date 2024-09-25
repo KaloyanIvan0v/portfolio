@@ -128,9 +128,13 @@
       "
       alt="Checkbox"
     />
-    <span>{{ "form.privacy.part1" | translate }}</span>
-    <a href="privacy-policy">{{ "form.privacy.part2" | translate }}</a>
-    <span>{{ "form.privacy.part3" | translate }}</span>
+    <span>
+      {{ "form.privacy.policyText" | translate }}
+      <a [href]="link" class="policy-link">
+        {{ "form.privacy.policyLinkText" | translate }}
+      </a>
+      {{ "form.privacy.policyTextContinuation" | translate }}
+    </span>
   </div>
   <div
     class="input-div-error"
