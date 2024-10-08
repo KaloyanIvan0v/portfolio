@@ -1,0 +1,139 @@
+@import "./../shared/scss/global.scss";
+
+@media (min-height: 1900px) {
+  .image-wrapper {
+    top: calc(100vh * 0.35);
+  }
+}
+
+@media (max-width: 1500px) {
+  .intro-text {
+    width: 442px;
+    position: unset;
+  }
+
+  .cta-button {
+    position: unset;
+  }
+  .intro-greeting {
+    p {
+      font-size: 46px;
+    }
+  }
+  .intro-name {
+    p {
+      font-size: 48px;
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: 34px;
+    }
+  }
+
+  .button-optic {
+    width: 140px;
+    font-size: 18px;
+    padding: 8px 13px 8px 13px;
+  }
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .hero-left {
+    margin: 0px;
+  }
+
+  .bottom-right {
+    display: none;
+  }
+
+  .hero-right {
+    margin-top: -3vh;
+    width: 100%;
+    gap: 32px;
+    justify-content: space-around;
+  }
+
+  .intro-text {
+    width: max-content;
+    @include dFlex($jc: center);
+    margin-right: 5vw;
+    margin-bottom: 0px;
+  }
+
+  .cta-btn {
+    font-size: 24px;
+    padding: 15px 30px 15px 30px;
+  }
+
+  .bottom-wave-wrapper {
+    height: 65vh;
+  }
+
+  .image-wrapper {
+    height: 40vh;
+    top: 20vh;
+  }
+}
+
+@media (max-width: 1400px) {
+  .intro-text {
+    padding-bottom: 0px;
+  }
+  .intro-greeting {
+    font-size: 48px;
+  }
+  .intro-name {
+    p {
+      font-size: 64px;
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: 48px;
+    }
+  }
+  .hero-bottom {
+    @include dFlex($jc: space-between);
+    width: 100%;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 830px) {
+  .intro-name {
+    p {
+      font-size: calc(100vw / 10);
+    }
+  }
+
+  .intro-role {
+    p {
+      font-size: calc(100vw / 14);
+    }
+  }
+
+  .intro-greeting {
+    p {
+      font-size: calc(100vw / 14);
+    }
+  }
+
+  .image-wrapper {
+    height: calc(100vw * 0.9);
+  }
+}
+
+@media (max-width: 630px) {
+  .e-mail-p {
+    display: none;
+  }
+
+  .cta-btn {
+    font-size: calc(100vw / 25);
+    padding: 15px 30px 15px 30px;
+  }
+}

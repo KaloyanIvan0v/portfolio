@@ -37,7 +37,7 @@ export class DataService {
         'https://github.com/KaloyanIvan0v/JumpAndRun-Polly-s-Adventure-.git',
       imgPath:
         './../../../assets/img/03-portfolio-section/pollys-adventure-screenshot.png',
-      name: 'Polys Adventure',
+      name: 'Pollys Adventure',
       techStack: ['HTML', 'CSS', 'JavaScript'],
       description:
         'Join is a web application that allows users to easily create and join events.',

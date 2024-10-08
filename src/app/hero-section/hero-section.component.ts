@@ -7,7 +7,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.scss',
+  styleUrls: [
+    './hero-section.component.scss',
+    './hero-section-responsive.scss',
+  ],
 })
 export class HeroSectionComponent implements OnInit {
   public imagePosition: number = 0;
