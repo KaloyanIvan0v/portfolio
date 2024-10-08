@@ -79,6 +79,9 @@
 }
 
 @media (max-width: 1400px) {
+  .bottom-wave-background {
+    bottom: -43%;
+  }
   .intro-text {
     padding-bottom: 0px;
   }
@@ -122,9 +125,10 @@
     }
   }
 
-  .image-wrapper {
-    height: calc(100vw * 0.9);
-  }
+  // .image-wrapper {
+  //   height: calc(100vw * 1.1);
+  //   top: 18vh;
+  // }
 }
 
 @media (max-width: 630px) {
@@ -135,5 +139,20 @@
   .cta-btn {
     font-size: calc(100vw / 25);
     padding: 15px 30px 15px 30px;
+  }
+
+  .bottom-wave-wrapper {
+    height: 55vh;
+  }
+
+  .hero-right {
+    height: max-content;
+  }
+}
+
+@media (max-height: 880px) and (min-height: 490px) and (max-width: 830px) {
+  .image-wrapper {
+    height: calc(100vw * 0.9);
+    top: 21vh;
   }
 }
