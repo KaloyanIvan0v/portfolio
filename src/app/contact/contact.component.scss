@@ -68,6 +68,7 @@ section {
   position: absolute;
   left: calc(-1 * ((100vw - 80%) / 2));
   top: 200px;
+  max-width: 95%;
   z-index: 1;
 }
 
