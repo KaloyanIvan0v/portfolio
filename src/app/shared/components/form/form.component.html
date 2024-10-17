@@ -4,8 +4,7 @@
   #userForm="ngForm"
   (ngSubmit)="onSubmit(userForm)"
 >
-  <!-- Name Field -->
-  <div class="input-waraper">
+  <div data-aos="fade-up" data-aos-duration="1000" class="input-waraper">
     <div
       [ngClass]="{
         'error-input-border': name.invalid && name.touched,
@@ -40,7 +39,7 @@
   </div>
 
   <!-- Email Field -->
-  <div class="input-waraper">
+  <div data-aos="fade-up" data-aos-duration="1000" class="input-waraper">
     <div
       [ngClass]="{
         'error-input-border': email.invalid && email.touched,
@@ -76,7 +75,7 @@
   </div>
 
   <!-- Message Field -->
-  <div class="input-waraper">
+  <div data-aos="fade-up" data-aos-duration="1000" class="input-waraper">
     <div
       [ngClass]="{
         'error-input-border': message.invalid && message.touched,
@@ -118,7 +117,7 @@
   </div>
 
   <!-- Privacy Policy -->
-  <div class="form-privacy-policy">
+  <div data-aos="fade-up" data-aos-duration="1000" class="form-privacy-policy">
     <img
       (click)="checkbox = !checkbox"
       [src]="
@@ -144,6 +143,8 @@
   </div>
   <!-- Submit Button -->
   <button
+    data-aos="fade-up"
+    data-aos-duration="1000"
     type="submit"
     class="btn-green button-optic"
     [ngClass]="{ 'button-disabled': userForm.invalid || !checkbox }"

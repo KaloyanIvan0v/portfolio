@@ -1,5 +1,7 @@
 <section
   data-aos="fade-up"
+  data-aos-duration="1000"
+  offset="350"
   [ngStyle]="{
     'flex-direction':
       innerWidth < 1150
@@ -10,7 +12,12 @@
   }"
 >
   <div class="project-image">
-    <img src="{{ data[dataIndex].imgPath }}" alt="" />
+    <img
+      data-aos="flip-up"
+      data-aos-offset="230"
+      src="{{ data[dataIndex].imgPath }}"
+      alt=""
+    />
   </div>
   <div
     class="project-data"

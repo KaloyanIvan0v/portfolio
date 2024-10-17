@@ -1,6 +1,8 @@
 <section>
   <div class="skill-icons-container">
     <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
       *ngFor="let skill of mySkillsData"
       class="single-skill jump-to-top-on-hover"
     >
@@ -8,7 +10,7 @@
       <p>{{ skill.title }}</p>
     </div>
 
-    <div class="single-skill">
+    <div data-aos="fade-up" data-aos-duration="1000" class="single-skill">
       <img
         class="purple-filter"
         src="./../../assets/img/02-skills-section/learning.svg"

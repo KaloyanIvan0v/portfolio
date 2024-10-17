@@ -50,6 +50,7 @@ a {
 
 .btn-green {
   background-color: $accent-color;
+  transition: width 2000ms ease;
   color: $primary-color;
   &:hover {
     background-color: $secondary-color;
@@ -59,6 +60,7 @@ a {
 .btn-purple {
   background-color: $secondary-color;
   color: $primary-color;
+  transition: width 2000ms ease;
   &:hover {
     background-color: $accent-color;
   }
@@ -68,6 +70,7 @@ a {
   background-color: transparent;
   color: $primary-color;
   border: 1px solid $accent-color;
+  transition: width 2000ms ease;
   &:hover {
     background-color: $accent-color;
   }

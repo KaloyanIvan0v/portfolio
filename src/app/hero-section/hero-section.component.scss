@@ -79,6 +79,7 @@ section {
 .cta-button {
   position: absolute;
   bottom: 8vh;
+  transition: width 2000ms ease;
 }
 
 .intro-details {
@@ -175,4 +176,26 @@ section {
 
 .social-link-div {
   @include dFlex();
+}
+
+@keyframes customZoom {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.aos-animate[data-aos="custom-zoom"] {
+  animation: customZoom 2s ease-in-out forwards;
+}
+
+.hero-right[data-aos="fade-up"] {
+  transform: translateY(20px);
+  transition-property: transform, opacity;
+}
+
+.hero-right[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
 }
