@@ -27,6 +27,7 @@ section {
   img {
     width: 453px;
     height: 453px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid $accent-color;

@@ -30,9 +30,9 @@
   "portfolio": {
     "introduction": "Ich habe Erfahrung in der Erstellung von Projekten mit verschiedenen Frontend-Technologien und Konzepten.",
     "project-descriptions": [
+      "DA Bubble ist ein Slack Clone. Die Webanwendung revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeitnachrichten und robuster Kanalorganisation.",
       "Join ist eine Webanwendung, die es Nutzern ermöglicht, auf einfache Weise Aufgaben zu erstellen und ihnen beizutreten.",
-      "Pollys Adventure, ist ein webbasiertes Jump and Run Spiel",
-      "DA Bubble ist ein Slack Clone. Die Webanwendung revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeitnachrichten und robuster Kanalorganisation."
+      "Pollys Adventure, ist ein webbasiertes Jump and Run Spiel"
     ]
   },
 
