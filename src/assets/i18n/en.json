@@ -13,14 +13,14 @@
   },
   "aboutMe": {
     "title": "About Me",
-    "introduction": "Hello, I am a German-speaking frontend developer based near Munich. With a strong interest in IT and all its facets, I specialize in creating websites and web-based applications.",
+    "introduction": "Hello, I am a German-speaking fullstack developer based near Munich. With a strong interest in IT and all its facets, I specialize in creating websites and web-based applications.",
     "flexible": "Working from home or on site at the company is no problem, I am open to both working models, including hybrid solutions.",
     "open-minded": "I love working with new technologies and constantly developing myself, technologically as well as interpersonally. ",
     "knowledge": "As a software developer, I don't see technical systems as problems, but as an exciting task to make these systems work. With sound expertise and good communication within the team, I solve complex problems and help to turn your vision into reality. "
   },
   "mySkills": {
     "title": "My skills",
-    "part1": "I have gained experience in building projects with different frontend technologies and concepts.",
+    "part1": "I have gained experience in building projects with different frontend and backend technologies and concepts.",
     "part2a": "Looking for",
     "part2b": "another skill",
     "part3": "Feel free to contact me. I look forward to expanding on my previous knowledge.",
@@ -28,7 +28,7 @@
   },
 
   "portfolio": {
-    "introduction": "I have gained experience in building projects with different frontend technologies and concepts.",
+    "introduction": "I have gained experience in building projects with different frontend and backend technologies and concepts.",
     "project-descriptions": [
       "This app is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
       "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
@@ -54,7 +54,7 @@
     "title": "Got a problem to solve?",
     "text": "Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to your projects with my work.",
     "cta": {
-      "part1": "Need a Frontend developer? ",
+      "part1": "Need a Fullstack developer? ",
       "part2": "Contact me!"
     }
   },
