@@ -41,6 +41,7 @@ section {
 .call-to-action-content {
   @include dFlex($fd: column, $ai: start, $jc: start);
   width: 474px;
+  z-index: 3;
 }
 
 .call-to-action-header {
@@ -69,7 +70,10 @@ section {
   left: calc(-1 * ((100vw - 80%) / 2));
   top: 200px;
   max-width: 95%;
-  z-index: 1;
+  z-index: 0;
+  img {
+    z-index: -1;
+  }
 }
 
 .up-button {
