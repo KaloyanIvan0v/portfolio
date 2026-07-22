@@ -22,5 +22,10 @@
     "terminal.ansiRed": "#C7AE95",
     "terminal.ansiWhite": "#C7CCD1",
     "terminal.ansiYellow": "#AEC795"
-  }
+  },
+  "editor.fontSize": 15,
+  "debug.console.fontSize": 19,
+  "terminal.integrated.fontSize": 17,
+  "cssrem.rootFontSize": 19,
+  "markdown.preview.fontSize": 19
 }
