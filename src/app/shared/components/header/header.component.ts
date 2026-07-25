@@ -1,45 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { DataService } from './../../services/data.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { filter } from 'rxjs';
 import { LanguageSwitchComponent } from './../language-switch/language-switch.component';
-import { Router } from '@angular/router';
+import { MenuService } from './../../services/menu.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, TranslateModule, LanguageSwitchComponent],
+  imports: [CommonModule, TranslateModule, RouterLink, LanguageSwitchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  activeSection: string = 'about';
-  currentLanguage: 'en' | 'de' = 'en';
-  showMenu: boolean = true;
-  constructor(
-    private translate: TranslateService,
-    public dataService: DataService,
-    private router: Router
-  ) {
-    this.dataService.currentLanguage$.subscribe((language) => {
-      this.currentLanguage = language;
-      this.translate.use(language);
-    });
-  }
+  private router = inject(Router);
+  private menuService = inject(MenuService);
+  private destroyRef = inject(DestroyRef);
+
+  activeSection = 'about me';
+  showMenu = true;
 
   ngOnInit(): void {
-    this.router.events.subscribe(() => {
-      const currentUrl = this.router.url;
-      this.showMenu = !(
-        currentUrl.includes('imprint') || currentUrl.includes('privacy-policy')
-      );
-    });
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(() => {
+        const url = this.router.url;
+        this.showMenu = !(
+          url.includes('imprint') || url.includes('privacy-policy')
+        );
+      });
   }
 
-  setActive(section: string) {
+  setActive(section: string): void {
     this.activeSection = section;
   }
 
-  showMobileMenu() {
-    this.dataService.mobileMenuVisible = true;
+  showMobileMenu(): void {
+    this.menuService.openMobileMenu();
   }
 }

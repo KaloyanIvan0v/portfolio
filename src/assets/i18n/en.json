@@ -9,6 +9,8 @@
 
   "hero": {
     "introduction": "I am",
+    "role": "Fullstack Developer",
+    "scroll": "Scroll down",
     "cta-button": "Let's talk!"
   },
   "aboutMe": {
@@ -38,12 +40,10 @@
 
   "feedback": [
     {
-      "imgPath": "./../../assets/img/04-feedback-section/authors/c-hampel.jpg",
       "author": "C.Hampel - Team Partner",
       "feedback": "The collaboration in our team project with Kaloyan Ivanov worked very well at all times. Thanks to his in-depth knowledge of web development, he was a key factor in the success of our software project. Above all, I would like to emphasize his willingness to help with questions and problems of other team members."
     },
     {
-      "imgPath": "./../../assets/img/04-feedback-section/authors/leila.jpg",
       "author": "Leila - Team Partner",
       "feedback": "I was very pleased to work with Kaloyan. Punctuality and creativity are his strengths! In addition, his communication skills and ability to explain his ideas are very appreciated, would work with you again and again Kaloyan."
     }
@@ -71,7 +71,9 @@
       "policyTextContinuation": " and agree to the processing of my data as outlined."
     },
     "accept": "Please accept the privacy policy.",
-    "send": "Send message :) "
+    "send": "Send message :) ",
+    "successMessage": "Your message has been sent successfully. Thank you!",
+    "errorMessage": "Something went wrong. Please try again later."
   },
 
   "footer": {

@@ -1,44 +1,54 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TESTIMONIAL_IMAGES } from '../shared/data/testimonials';
+import { Testimonial } from '../shared/models/testimonial.model';
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule],
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent {
-  @Input() testimonialIndex: number = 0;
-  testimonialData: any[] = [];
-  currentTestimonial: any = {};
+  private translate = inject(TranslateService);
 
-  constructor(public translate: TranslateService) {
-    this.translate.setDefaultLang('en');
-    this.loadTestimonials();
+  readonly images = TESTIMONIAL_IMAGES;
+  testimonials: Testimonial[] = [];
+  currentIndex = 0;
+
+  constructor() {
+    // stream() re-emits when the language changes, so the slider stays in sync.
+    this.translate
+      .stream('feedback')
+      .pipe(takeUntilDestroyed())
+      .subscribe((data) => {
+        this.testimonials = Array.isArray(data) ? data : [];
+        if (this.currentIndex >= this.testimonials.length) {
+          this.currentIndex = 0;
+        }
+      });
   }
 
-  loadTestimonials() {
-    this.translate.get('feedback').subscribe((data: any) => {
-      this.testimonialData = data;
-      this.currentTestimonial = this.testimonialData[this.testimonialIndex];
-    });
+  get current(): Testimonial | undefined {
+    return this.testimonials[this.currentIndex];
   }
 
-  prevTestimonial() {
-    this.testimonialIndex--;
-    if (this.testimonialIndex < 0) {
-      this.testimonialIndex = this.testimonialData.length - 1;
-    }
-    this.currentTestimonial = this.testimonialData[this.testimonialIndex];
+  select(index: number): void {
+    this.currentIndex = index;
   }
 
-  nextTestimonial() {
-    this.testimonialIndex++;
-    if (this.testimonialIndex >= this.testimonialData.length) {
-      this.testimonialIndex = 0;
-    }
-    this.currentTestimonial = this.testimonialData[this.testimonialIndex];
+  prevTestimonial(): void {
+    const count = this.testimonials.length;
+    if (count === 0) return;
+    this.currentIndex = (this.currentIndex - 1 + count) % count;
+  }
+
+  nextTestimonial(): void {
+    const count = this.testimonials.length;
+    if (count === 0) return;
+    this.currentIndex = (this.currentIndex + 1) % count;
   }
 }

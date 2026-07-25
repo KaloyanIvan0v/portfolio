@@ -1,105 +1,82 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzzpyqle';
+const FEEDBACK_DURATION_MS = 4000;
+
+type FeedbackKind = 'success' | 'error';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-
-  imports: [CommonModule, FormsModule, TranslateModule],
+  imports: [CommonModule, FormsModule, TranslateModule, RouterLink],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
-  link = 'privacy-policy';
-  sanitizedHtml: SafeHtml = '';
-  constructor(
-    public translate: TranslateService,
-    private sanitizer: DomSanitizer
-  ) {
-    this.translate
-      .get('form.privacy.policy', { link: 'privacy-policy' })
-      .subscribe((res: string) => {
-        this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(res);
-      });
-  }
-  @Input() checkbox: boolean = false;
+  checkbox = false;
+  sending = false;
+
   user = {
     name: '',
     email: '',
     message: '',
   };
 
-  @Input() msgSendFeedback: { msg: string; active: boolean } = {
-    msg: 'Your message has been sent successfully. Thank you!',
+  /** i18n key of the message shown after submitting, plus its state. */
+  feedback: { key: string; kind: FeedbackKind; active: boolean } = {
+    key: '',
+    kind: 'success',
     active: false,
   };
 
-  onSubmit(userForm: NgForm) {
-    if (this.checkbox && userForm.valid) {
-      this.showFeedback('');
-      this.sendMail();
-      this.clearForm(userForm);
-    } else {
+  onSubmit(userForm: NgForm): void {
+    if (!this.checkbox || !userForm.valid || this.sending) {
       userForm.form.markAllAsTouched();
+      return;
     }
+    this.sendMail(userForm);
   }
 
-  clearForm(userForm: NgForm) {
-    userForm.reset();
-    this.checkbox = false;
-  }
+  private sendMail(userForm: NgForm): void {
+    this.sending = true;
+    const body = JSON.stringify(this.user);
 
-  sendMail() {
-    const data = JSON.stringify({
-      name: this.user.name,
-      email: this.user.email,
-      message: this.user.message,
-    });
-
-    fetch('https://formspree.io/f/mzzpyqle', {
+    fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
-      body: data,
+      body,
       headers: {
+        'Content-Type': 'application/json',
         Accept: 'application/json',
       },
     })
-      .then(() => {
-        this.showFeedback(
-          'Your message has been sent successfully. Thank you!'
-        );
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+        this.showFeedback('form.successMessage', 'success');
+        this.clearForm(userForm);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        this.showFeedback('form.errorMessage', 'error');
+      })
+      .finally(() => {
+        this.sending = false;
       });
   }
 
-  showFeedback(msg: string) {
-    this.msgSendFeedback = {
-      msg: msg,
-      active: true,
-    };
-    setTimeout(() => {
-      this.msgSendFeedback.active = false;
-    }, 1835);
+  private clearForm(userForm: NgForm): void {
+    userForm.resetForm();
+    this.checkbox = false;
   }
 
-  onResizeStart(event: MouseEvent, container: HTMLElement) {
-    const startY = event.clientY;
-    const startHeight = container.offsetHeight;
-
-    const onMouseMove = (e: MouseEvent) => {
-      const newHeight = startHeight + (e.clientY - startY);
-      container.style.height = `${newHeight}px`;
-    };
-
-    const onMouseUp = () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    };
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+  private showFeedback(key: string, kind: FeedbackKind): void {
+    this.feedback = { key, kind, active: true };
+    setTimeout(() => {
+      this.feedback.active = false;
+    }, FEEDBACK_DURATION_MS);
   }
 }

@@ -7,9 +7,11 @@
   <div class="sub-headline">
     <p>{{ "portfolio.introduction" | translate }}</p>
   </div>
-  <div class="single-project" *ngFor="let projectIndex of [0, 1, 2]">
-    <app-single-project [dataIndex]="projectIndex"></app-single-project>
-  </div>
+  @for (project of projects; track project.name; let i = $index) {
+    <div class="single-project">
+      <app-single-project [project]="project" [index]="i"></app-single-project>
+    </div>
+  }
   <div class="portfolio-shadow breathing-size">
     <img src="assets/img/03-portfolio-section/portfolio-shadow.svg" alt="" />
   </div>

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ImprintComponent } from './imprint.component';
+import {
+  commonTestImports,
+  commonTestProviders,
+} from '../../../../testing/common-testing';
 
 describe('ImprintComponent', () => {
   let component: ImprintComponent;
@@ -8,10 +11,10 @@ describe('ImprintComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImprintComponent]
-    })
-    .compileComponents();
-    
+      imports: [ImprintComponent, ...commonTestImports],
+      providers: [...commonTestProviders],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ImprintComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

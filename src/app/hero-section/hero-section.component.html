@@ -4,13 +4,13 @@
       <div data-aos="custom-zoom" class="image-wrapper">
         <img
           class="developer-image"
-          src="../../assets/img/00-hero-section/dev-img.webp"
-          alt="Developer Image"
+          src="assets/img/00-hero-section/dev-img.webp"
+          alt="Kaloyan Ivanov"
         />
         <img
           class="background-image"
-          src="../../assets/img/00-hero-section/dev-img-background.png"
-          alt="Background Image"
+          src="assets/img/00-hero-section/dev-img-background.png"
+          alt=""
         />
       </div>
     </div>
@@ -21,13 +21,15 @@
       class="hero-right"
     >
       <div class="intro-text">
-        <div class="intro-greeting"><p>I am</p></div>
+        <div class="intro-greeting">
+          <p>{{ "hero.introduction" | translate }}</p>
+        </div>
         <div class="intro-details">
           <div class="intro-name">
             <p>Kaloyan Ivanov</p>
           </div>
           <div class="intro-role">
-            <p>Fullstack Developer</p>
+            <p>{{ "hero.role" | translate }}</p>
           </div>
         </div>
       </div>
@@ -45,6 +47,7 @@
         target="_blank"
         rel="noopener"
         href="https://github.com/KaloyanIvan0v"
+        aria-label="GitHub profile"
         class="social-link-div scale-on-hover"
       >
         <img src="assets/img/07-other/social-icons/github/git-hub.svg" alt="" />
@@ -53,6 +56,7 @@
         target="_blank"
         rel="noopener"
         href="mailto:info@kaloyanivanov.de"
+        aria-label="Send an email"
         class="social-link-div scale-on-hover"
       >
         <img src="assets/img/07-other/social-icons/mail/email.svg" alt="" />
@@ -61,6 +65,7 @@
         target="_blank"
         rel="noopener"
         href="https://www.linkedin.com/in/kaloyan-ivanov-655a27302"
+        aria-label="LinkedIn profile"
         class="social-link-div scale-on-hover"
       >
         <img
@@ -72,14 +77,10 @@
         <a href="#contact"><p>info&#64;kaloyanivanov.de</p></a>
       </div>
     </div>
-    <div class="bottom-right">Scroll down -></div>
+    <div class="bottom-right">{{ "hero.scroll" | translate }} -></div>
   </div>
   <div class="bottom-wave-wrapper">
-    <img src="../../assets/img/00-hero-section/wave.png" alt="" />
+    <img src="assets/img/00-hero-section/wave.png" alt="" />
     <div class="bottom-wave-background"></div>
   </div>
-
-  <!-- <div class="purple-shadow">
-    <img src="assets/img/00-hero-section/purple-shadow.png" alt="" />
-  </div> -->
 </section>

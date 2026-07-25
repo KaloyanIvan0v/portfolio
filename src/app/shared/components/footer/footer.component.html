@@ -2,56 +2,50 @@
   <div class="wrapper">
     <div class="left-footer">
       <div class="dev-name">
-        <img
-          src="./../../../../assets/img/06-header-section/kaloyan.png"
-          alt=""
-        />
+        <img src="assets/img/06-header-section/kaloyan.png" alt="Kaloyan Ivanov logo" />
       </div>
       <div class="imprint desktop-imprint">
         <span
-          ><a href="imprint">{{ "footer.imprint" | translate }}</a></span
+          ><a routerLink="/imprint">{{ "footer.imprint" | translate }}</a></span
         >
         <div class="green-line"></div>
       </div>
     </div>
-    <div class="middle-footer">© Kaloyan Ivanov 2025</div>
+    <div class="middle-footer">© Kaloyan Ivanov {{ currentYear }}</div>
     <div class="right-footer">
       <a
         target="_blank"
         rel="noopener"
         href="https://github.com/KaloyanIvan0v"
+        aria-label="GitHub profile"
         class="social-link-div scale-on-hover"
       >
-        <img
-          src="./../../../../assets/img/07-other/social-icons/github/git-hub.svg"
-          alt=""
-      /></a>
+        <img src="assets/img/07-other/social-icons/github/git-hub.svg" alt="" />
+      </a>
 
       <a
         target="_blank"
         rel="noopener"
         href="mailto:info@kaloyanivanov.de"
+        aria-label="Send an email"
         class="social-link-div scale-on-hover"
       >
-        <img
-          src="./../../../../assets/img/07-other/social-icons/mail/email.svg"
-          alt=""
-      /></a>
+        <img src="assets/img/07-other/social-icons/mail/email.svg" alt="" />
+      </a>
 
       <a
         target="_blank"
         rel="noopener"
         href="https://www.linkedin.com/in/kaloyan-ivanov-655a27302"
+        aria-label="LinkedIn profile"
         class="social-link-div scale-on-hover"
       >
-        <img
-          src="./../../../../assets/img/07-other/social-icons/linkedin/linkedin.svg"
-          alt=""
-      /></a>
+        <img src="assets/img/07-other/social-icons/linkedin/linkedin.svg" alt="" />
+      </a>
     </div>
     <div class="imprint mobile-imprint">
       <span
-        ><a href="imprint">{{ "footer.imprint" | translate }}</a></span
+        ><a routerLink="/imprint">{{ "footer.imprint" | translate }}</a></span
       >
       <div class="green-line"></div>
     </div>

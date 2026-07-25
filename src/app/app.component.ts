@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { LanguageService } from './shared/services/language.service';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'portfolio';
+  // Injected so the language is initialised once, app-wide.
+  private languageService = inject(LanguageService);
 
-  ngOnInit() {
+  ngOnInit(): void {
     AOS.init({
       offset: 0,
       duration: 450,

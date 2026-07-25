@@ -1,29 +1,37 @@
 <section
-  [ngClass]="{
-    'v-visible-mobile-menu': this.dataService.mobileMenuVisible,
-    'v-none-mobile-menu': !this.dataService.mobileMenuVisible
-  }"
+  [class.v-visible-mobile-menu]="menuService.mobileMenuVisible()"
+  [class.v-none-mobile-menu]="!menuService.mobileMenuVisible()"
 >
   <div class="mobile-menu-header">
     <div>
-      <img src="./../../assets/img/06-header-section/kaloyan.png" alt="" />
+      <img
+        src="assets/img/06-header-section/kaloyan.png"
+        alt="Kaloyan Ivanov logo"
+      />
     </div>
-    <div class="close-cross" (click)="hideMobileMenu()">
-      <img src="./../../assets/img/07-other/close-mobil-cross.png" alt="" />
-    </div>
+    <button class="close-cross" (click)="hideMobileMenu()" aria-label="Close menu">
+      <img src="assets/img/07-other/close-mobil-cross.png" alt="" />
+    </button>
   </div>
-  <div class="close"></div>
-  <div (click)="hideMobileMenu()" class="close">
-    <a href="#about"> {{ "header.menu.about" | translate }}</a>
+  <div class="close">
+    <a href="#about" (click)="hideMobileMenu()">
+      {{ "header.menu.about" | translate }}</a
+    >
   </div>
-  <div (click)="hideMobileMenu()" class="close">
-    <a href="#skills">Skills</a>
+  <div class="close">
+    <a href="#skills" (click)="hideMobileMenu()">{{
+      "header.menu.skills" | translate
+    }}</a>
   </div>
-  <div (click)="hideMobileMenu()" class="close">
-    <a href="#portfolio">Portfolio</a>
+  <div class="close">
+    <a href="#portfolio" (click)="hideMobileMenu()">{{
+      "header.menu.portfolio" | translate
+    }}</a>
   </div>
-  <div (click)="hideMobileMenu()" class="close">
-    <a href="#contact">{{ "contact.sectionTitle" | translate }}</a>
+  <div class="close">
+    <a href="#contact" (click)="hideMobileMenu()">{{
+      "contact.sectionTitle" | translate
+    }}</a>
   </div>
   <app-language-switch></app-language-switch>
 </section>

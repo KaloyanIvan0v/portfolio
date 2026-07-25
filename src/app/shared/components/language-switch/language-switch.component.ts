@@ -1,23 +1,20 @@
-import { Component } from '@angular/core';
-import { DataService } from './../../services/data.service';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LanguageService } from './../../services/language.service';
 
 @Component({
   selector: 'app-language-switch',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './language-switch.component.html',
   styleUrls: ['./language-switch.component.scss'],
 })
 export class LanguageSwitchComponent {
-  currentLanguage: 'en' | 'de' = 'en';
-  constructor(private dataService: DataService) {
-    this.dataService.currentLanguage$.subscribe((language) => {
-      this.currentLanguage = language;
-    });
-  }
+  private languageService = inject(LanguageService);
 
-  toggleLanguage() {
-    const newLanguage: 'en' | 'de' =
-      this.currentLanguage === 'en' ? 'de' : 'en';
-    this.dataService.changeLanguage(newLanguage);
+  readonly currentLanguage$ = this.languageService.currentLanguage$;
+
+  toggleLanguage(): void {
+    this.languageService.toggleLanguage();
   }
 }

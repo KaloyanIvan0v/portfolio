@@ -2,57 +2,63 @@
   <div class="testimonial-content">
     <div class="testimonial-box">
       <div class="testimonial-sign">
-        <img src="./../../assets/img/04-feedback-section/comment.png" alt="" />
+        <img src="assets/img/04-feedback-section/comment.png" alt="" />
       </div>
       <div class="testimonial-text-and-author">
         <div class="testimonial-text">
-          <p>
-            {{ "feedback." + testimonialIndex + ".feedback" | translate }}
-          </p>
+          <p>{{ current?.feedback }}</p>
         </div>
         <div class="testimonial-author">
           <div class="purple-line-author"></div>
-          <p>
-            {{ "feedback." + testimonialIndex + ".author" | translate }}
-          </p>
+          <p>{{ current?.author }}</p>
         </div>
       </div>
     </div>
     <div class="testimonial-img">
-      <img
-        src=" {{ 'feedback.' + testimonialIndex + '.imgPath' | translate }}"
-        alt=""
-      />
+      <img [src]="images[currentIndex]" [alt]="current?.author || ''" />
       <div class="purple-line-img"></div>
     </div>
   </div>
   <div class="testimonial-navigation">
-    <div (click)="prevTestimonial()" class="arrow-left">
+    <button
+      (click)="prevTestimonial()"
+      class="icon-button arrow-left"
+      aria-label="Previous testimonial"
+    >
       <img
         class="arrow-img-left"
-        src="./../../assets/img/04-feedback-section/arrow-left.png"
+        src="assets/img/04-feedback-section/arrow-left.png"
         alt=""
       />
-    </div>
-    <div *ngFor="let item of testimonialData" class="dot-position">
-      <img
-        *ngIf="currentTestimonial != item"
-        src="./../../assets/img/04-feedback-section/green-dot.png"
-        alt=""
-      />
-      <img
-        *ngIf="currentTestimonial == item"
-        src="./../../assets/img/04-feedback-section/purple-dot.png"
-        alt=""
-      />
-    </div>
-    <div (click)="nextTestimonial()" class="arrow-right">
+    </button>
+    @for (item of testimonials; track $index) {
+      <button
+        class="icon-button dot-position"
+        (click)="select($index)"
+        [attr.aria-label]="'Show testimonial ' + ($index + 1)"
+        [attr.aria-current]="$index === currentIndex"
+      >
+        <img
+          [src]="
+            $index === currentIndex
+              ? 'assets/img/04-feedback-section/purple-dot.png'
+              : 'assets/img/04-feedback-section/green-dot.png'
+          "
+          alt=""
+        />
+      </button>
+    }
+    <button
+      (click)="nextTestimonial()"
+      class="icon-button arrow-right"
+      aria-label="Next testimonial"
+    >
       <img
         class="arrow-img-right"
-        src="./../../assets/img/04-feedback-section/arrow-right.png"
+        src="assets/img/04-feedback-section/arrow-right.png"
         alt=""
       />
-    </div>
+    </button>
   </div>
   <div class="feedback-shadow breathing-size">
     <img src="assets/img/04-feedback-section/feedback-shadow.svg" alt="" />

@@ -3,7 +3,8 @@
     <input
       type="checkbox"
       id="toggle"
-      [checked]="currentLanguage === 'de'"
+      aria-label="Switch language between English and German"
+      [checked]="(currentLanguage$ | async) === 'de'"
       (change)="toggleLanguage()"
     />
     <label for="toggle" class="slider"></label>

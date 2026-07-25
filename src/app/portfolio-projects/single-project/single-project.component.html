@@ -1,62 +1,43 @@
 <section
+  class="project"
+  [class.reverse]="index % 2 === 1"
   data-aos="fade-up"
   data-aos-duration="1000"
-  offset="350"
-  [ngStyle]="{
-    'flex-direction':
-      innerWidth < 1150
-        ? 'column'
-        : (2 + dataIndex) % 2 === 0
-        ? ''
-        : 'row-reverse'
-  }"
+  data-aos-offset="350"
 >
   <div class="project-image">
     <img
       data-aos="flip-up"
       data-aos-offset="230"
-      src="{{ data[dataIndex].imgPath }}"
-      alt=""
+      [src]="project.imgPath"
+      [alt]="project.name + ' screenshot'"
     />
   </div>
-  <div
-    class="project-data"
-    [ngStyle]="{
-      'align-items':
-        innerWidth > 1150 && (2 + dataIndex) % 2 === 0 ? '' : 'end',
-    }"
-  >
-    <div class="project-title">
-      {{ data[dataIndex].name }}
-    </div>
+  <div class="project-data">
+    <div class="project-title">{{ project.name }}</div>
     <div class="tech-stack">
-      <div *ngFor="let tech of data[dataIndex].techStack">
-        {{ tech }}
-        <div
-          *ngIf="
-            tech !==
-            data[dataIndex].techStack[data[dataIndex].techStack.length - 1]
-          "
-        >
-          |
-        </div>
-      </div>
+      @for (tech of project.techStack; track tech; let last = $last) {
+        <span class="tech">{{ tech }}</span>
+        @if (!last) {
+          <span class="divider">|</span>
+        }
+      }
     </div>
     <div class="project-description-text">
-      {{ "portfolio.project-descriptions." + dataIndex | translate }}
+      {{ project.descriptionKey | translate }}
     </div>
     <div class="project-buttons">
       <a
         target="_blank"
         rel="noopener"
-        href="{{ data[dataIndex].liveTestUrl }}"
+        [href]="project.liveTestUrl"
         class="button-optic btn-purple live-test"
         >Live test</a
       >
       <a
         target="_blank"
         rel="noopener"
-        href="{{ data[dataIndex].gitHubUrl }}"
+        [href]="project.gitHubUrl"
         class="button-optic btn-empty git-hub"
         >GitHub</a
       >
