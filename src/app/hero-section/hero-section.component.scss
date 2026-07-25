@@ -1,4 +1,4 @@
-@import "./../shared/scss/global.scss";
+@use "./../shared/scss/variables" as *;
 
 section {
   position: relative;
@@ -165,13 +165,6 @@ section {
   transform: rotate(90deg);
   font-weight: 300;
   height: max-content;
-}
-
-.purple-shadow {
-  position: absolute;
-  right: calc(-1 * ((100vw - 60%) / 2));
-  top: 90vh;
-  z-index: 2;
 }
 
 .social-link-div {

@@ -1,4 +1,4 @@
-@import "./../shared/scss/global.scss";
+@use "./../shared/scss/variables" as *;
 
 section {
   @include dFlex($ai: top);

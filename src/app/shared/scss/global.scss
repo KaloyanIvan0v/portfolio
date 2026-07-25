@@ -1,21 +1,22 @@
-$primary-background-color: #141d2f;
-$primary-color: #ffffff;
-$secondary-color: #9747ff;
-$accent-color: #70e61c;
-$error-color: #e61c40;
+@use "variables" as *;
 
 @font-face {
   font-family: "poppins";
-  src: url("../../../assets/fonts/Poppins/variable/TTF/Poppins-VariableFont_wght.ttf");
+  src: url("../../../assets/fonts/Poppins/variable/WOFF2/Poppins.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
-  scroll-behavior: smooth;
   color: $primary-color;
   font-family: "poppins";
   font-weight: 300;
   box-sizing: border-box;
-  transition: opacity 0.175s ease, visibility 0.175s ease;
 }
 
 p {
@@ -27,19 +28,26 @@ input:focus {
   outline: none;
 }
 
+// Reset native buttons; styled variants re-add their look via their classes.
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.icon-button {
+  padding: 0;
+  @include dFlex();
+}
+
 .button-optic {
   cursor: pointer;
   border: none;
   border-radius: 10px;
   font-size: 23px;
   padding: 15px 30px 15px 30px;
-}
-
-@mixin dFlex($jc: center, $ai: center, $fd: row) {
-  display: flex;
-  justify-content: $jc;
-  align-items: $ai;
-  flex-direction: $fd;
 }
 
 a {
@@ -50,7 +58,7 @@ a {
 
 .btn-green {
   background-color: $accent-color;
-  transition: width 2000ms ease;
+  transition: background-color 0.3s ease;
   color: $primary-color;
   &:hover {
     background-color: $secondary-color;
@@ -60,7 +68,7 @@ a {
 .btn-purple {
   background-color: $secondary-color;
   color: $primary-color;
-  transition: width 2000ms ease;
+  transition: background-color 0.3s ease;
   border: 1px solid $primary-background-color;
   &:hover {
     background-color: $accent-color;
@@ -71,7 +79,7 @@ a {
   background-color: transparent;
   color: $primary-color;
   border: 1px solid $accent-color;
-  transition: width 2000ms ease;
+  transition: background-color 0.3s ease;
   &:hover {
     background-color: $accent-color;
   }

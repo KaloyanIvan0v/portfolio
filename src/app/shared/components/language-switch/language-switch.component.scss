@@ -1,4 +1,4 @@
-@import "./../../scss/global.scss";
+@use "./../../scss/variables" as *;
 .language-switch {
   @include dFlex();
   display: flex;

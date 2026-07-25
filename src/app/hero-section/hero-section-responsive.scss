@@ -1,4 +1,4 @@
-@import "./../shared/scss/global.scss";
+@use "./../shared/scss/variables" as *;
 
 @media (min-height: 1900px) {
   .image-wrapper {

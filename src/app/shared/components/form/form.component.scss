@@ -1,4 +1,4 @@
-@import "./../../../shared/scss/global.scss";
+@use "./../../../shared/scss/variables" as *;
 form {
   position: relative;
   @include dFlex($fd: column);
@@ -16,31 +16,34 @@ form {
   font-size: 14px;
   gap: 8px;
   margin-bottom: 8px;
-  div {
-    @include dFlex();
-    border: none;
-    width: max-content;
-    padding: 0px;
-    font-size: 14px;
-    margin: 0px;
+  label {
+    cursor: pointer;
   }
   a {
     color: $secondary-color;
   }
 }
 
-:host ::ng-deep .policy-link {
+.privacy-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-image: url("./../../../../assets/img/05-contact-section/box-unchecked.png");
+  background-size: cover;
+  &:checked {
+    background-image: url("./../../../../assets/img/05-contact-section/box-checked.png");
+  }
+}
+
+.policy-link {
   color: $secondary-color;
   text-decoration: none;
 }
 
-.checkbox-wrapper {
-  img {
-    width: 18px;
-    height: 18px;
-  }
-}
-.input-waraper {
+.input-wrapper {
   @include dFlex($fd: column);
   gap: 10px;
   margin-bottom: 24px;
@@ -77,28 +80,17 @@ form {
   textarea {
     position: relative;
     display: inline-block;
-    @include dFlex($fd: row);
     font-size: 16px;
     width: 100%;
     min-height: 200px;
     height: 100%;
     border: none;
-    resize: none;
+    resize: vertical;
     background-color: transparent;
     &::placeholder {
       color: $primary-color;
     }
   }
-}
-
-.resize-handle {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  bottom: -3px;
-  right: -16px;
-  background-image: url("./../../../../assets/img/05-contact-section/resizer.png");
-  cursor: se-resize;
 }
 
 .valid-img-wrapper {
@@ -138,6 +130,9 @@ form {
     font-size: 20px;
     font-weight: 500;
     text-align: center;
+  }
+  &.feedback-error {
+    background-color: $error-color;
   }
 }
 

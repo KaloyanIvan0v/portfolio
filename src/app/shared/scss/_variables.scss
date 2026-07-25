@@ -1,0 +1,15 @@
+// Design tokens + shared mixins.
+// This partial emits NO CSS — it is safe to @use from every component.
+
+$primary-background-color: #141d2f;
+$primary-color: #ffffff;
+$secondary-color: #9747ff;
+$accent-color: #70e61c;
+$error-color: #e61c40;
+
+@mixin dFlex($jc: center, $ai: center, $fd: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}

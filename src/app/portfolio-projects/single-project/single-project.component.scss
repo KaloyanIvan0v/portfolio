@@ -1,4 +1,4 @@
-@import "./../../shared/scss/global.scss";
+@use "./../../shared/scss/variables" as *;
 
 section {
   @include dFlex();
@@ -6,12 +6,20 @@ section {
   max-width: 1920px;
   gap: 48px;
   z-index: 2;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .project-data {
-  @include dFlex($fd: column, $ai: top);
+  @include dFlex($fd: column, $ai: flex-start);
   row-gap: 15px;
   max-width: 500px;
+}
+
+section.reverse .project-data {
+  align-items: flex-end;
 }
 
 .project-title {
@@ -25,11 +33,11 @@ section {
   width: max-content;
   @include dFlex();
   gap: 8px;
-  div {
+  .tech,
+  .divider {
     @include dFlex();
     font-size: 23px;
     color: $accent-color;
-    gap: 8px;
   }
 }
 
@@ -51,11 +59,13 @@ section {
 }
 
 @media (max-width: 1150px) {
-  section {
+  section.project,
+  section.project.reverse {
     @include dFlex($fd: column);
   }
 
-  .project-data {
+  .project-data,
+  section.reverse .project-data {
     align-items: center !important;
     margin-top: 35px;
   }
@@ -87,7 +97,8 @@ section {
 
 @media (max-width: 430px) {
   .tech-stack {
-    div {
+    .tech,
+    .divider {
       font-size: 18px;
     }
   }
