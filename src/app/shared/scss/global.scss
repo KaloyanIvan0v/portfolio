@@ -12,11 +12,36 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Set on body and inherited, rather than forced onto every element with `*`.
+body {
   color: $primary-color;
   font-family: "poppins";
   font-weight: 300;
-  box-sizing: border-box;
+}
+
+// Headings and form controls don't inherit these by default — the UA gives
+// headings `bold` and form controls their own font — so they opt back in.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 
 p {
@@ -151,23 +176,5 @@ section {
   }
   100% {
     transform: scale(1);
-  }
-}
-
-@media (max-width: 1000px) {
-  .g-title {
-    font-size: 56px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .g-title {
-    font-size: 42px !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .g-title {
-    font-size: 32px !important;
   }
 }

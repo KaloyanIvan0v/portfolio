@@ -13,10 +13,30 @@ section {
 .headline {
   @include dFlex($jc: start);
   width: 100%;
-  p {
+  h2 {
     font-size: 90px;
     font-weight: 700;
     margin: 0px 32px 0px 32px;
+  }
+}
+
+// Used to live in global.scss as `.g-title` and needed `!important` to beat
+// the rule above. Same component, so it belongs here and the override goes.
+@media (max-width: 1000px) {
+  .headline h2 {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline h2 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 380px) {
+  .headline h2 {
+    font-size: 32px;
   }
 }
 
