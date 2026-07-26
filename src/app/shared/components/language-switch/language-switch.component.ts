@@ -7,11 +7,10 @@ import { LanguageService } from './../../services/language.service';
 let nextId = 0;
 
 @Component({
-  selector: 'app-language-switch',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './language-switch.component.html',
-  styleUrls: ['./language-switch.component.scss'],
+    selector: 'app-language-switch',
+    imports: [CommonModule],
+    templateUrl: './language-switch.component.html',
+    styleUrls: ['./language-switch.component.scss']
 })
 export class LanguageSwitchComponent {
   private languageService = inject(LanguageService);

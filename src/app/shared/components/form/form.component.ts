@@ -10,11 +10,10 @@ const FEEDBACK_DURATION_MS = 4000;
 type FeedbackKind = 'success' | 'error';
 
 @Component({
-  selector: 'app-form',
-  standalone: true,
-  imports: [CommonModule, FormsModule, TranslateModule, RouterLink],
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+    selector: 'app-form',
+    imports: [CommonModule, FormsModule, TranslateModule, RouterLink],
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
   private hideFeedbackTimer?: ReturnType<typeof setTimeout>;

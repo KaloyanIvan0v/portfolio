@@ -4,11 +4,10 @@ import { SingleProjectComponent } from './single-project/single-project.componen
 import { PROJECTS } from '../shared/data/projects';
 
 @Component({
-  selector: 'app-portfolio-projects',
-  standalone: true,
-  imports: [SingleProjectComponent, TranslateModule],
-  templateUrl: './portfolio-projects.component.html',
-  styleUrl: './portfolio-projects.component.scss',
+    selector: 'app-portfolio-projects',
+    imports: [SingleProjectComponent, TranslateModule],
+    templateUrl: './portfolio-projects.component.html',
+    styleUrl: './portfolio-projects.component.scss'
 })
 export class PortfolioProjectsComponent {
   readonly projects = PROJECTS;

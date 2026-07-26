@@ -8,11 +8,10 @@ import { LanguageSwitchComponent } from './../language-switch/language-switch.co
 import { MenuService } from './../../services/menu.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, RouterLink, LanguageSwitchComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+    selector: 'app-header',
+    imports: [CommonModule, TranslateModule, RouterLink, LanguageSwitchComponent],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
   private router = inject(Router);
