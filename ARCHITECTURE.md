@@ -68,7 +68,7 @@ State lebt in Services, Komponenten injizieren sie mit `inject()` und
 
 | Service | Verantwortung |
 |---|---|
-| `LanguageService` | aktuelle Sprache: `translate.use()`, `localStorage`, `<html lang>`, `currentLanguage$` |
+| `LanguageService` | aktuelle Sprache: `translate.use()`, `localStorage`, `<html lang>`, Signal `currentLanguage` |
 | `MenuService` | Sichtbarkeit des Mobile-Menüs (Angular Signal), Scroll-Lock und Fokus-Rückgabe an den Öffner |
 | `TranslationLoader` | lädt die i18n-JSON-Dateien per HTTP |
 
@@ -83,8 +83,8 @@ language-switch.component.html   Klick auf den Toggle
                                      ├─ translate.use(lang)      → Pipes aktualisieren
                                      ├─ localStorage             → merkt die Wahl
                                      ├─ document.lang            → SEO/A11y
-                                     └─ currentLanguage$.next()  → Abonnenten
-  → header / mobile-menu           (currentLanguage$ | async)   reagieren
+                                     └─ currentLanguage.set()    → Signal-Leser
+  → language-switch                currentLanguage()            reagiert
   → alle Templates                 {{ "key" | translate }}      Text ändert sich
 ```
 
@@ -96,7 +96,7 @@ language-switch.component.html   Klick auf den Toggle
 | Farben / Schrift | `src/app/shared/scss/_variables.scss` |
 | globale Button-/Utility-Klassen | `src/app/shared/scss/global.scss` |
 | die Projektliste | `src/app/shared/data/projects.ts` |
-| die Skill-Icons | `src/app/my-skills/skills-grid/skills-grid.component.ts` |
+| die Skill-Icons | `src/app/shared/data/skills.ts` |
 | die Routen | `src/app/app.routes.ts` |
 
 ## Styling-Konventionen
@@ -131,11 +131,26 @@ Gemeinsame Test-Provider (Translate/Router/HttpClient) liegen in
 
 ## Change Detection
 
-Angular 22 verwendet standardmäßig `OnPush`. Beim Upgrade hat die Migration
-jede Komponente explizit auf `ChangeDetectionStrategy.Eager` gesetzt und
-`provideZoneChangeDetection()` in `main.ts` ergänzt, um das bisherige
-Verhalten zu erhalten. Beides ist Übergangszustand: Solange Slider-Index,
-Formular-Feedback und aktiver Navigationspunkt einfache Felder statt Signals
-sind, würden Timer- und Subscription-getriebene Updates unter `OnPush` die
-View nicht mehr erreichen. Die ESLint-Regel
-`prefer-on-push-component-change-detection` steht deshalb auf `warn`.
+Die App läuft **zoneless**: `zone.js` ist nicht installiert, `main.ts` enthält
+keinen `provideZoneChangeDetection()`-Aufruf, und alle Komponenten nutzen den
+Angular-22-Default `OnPush`.
+
+Das hat eine Konsequenz, die man kennen muss: **veränderlicher Zustand, den
+das Template liest, muss ein Signal sein.** Ein einfaches Feld, das aus einem
+`setTimeout`, einem `fetch`-`then` oder einer RxJS-Subscription heraus gesetzt
+wird, löst kein Rendering mehr aus. Betroffen sind derzeit:
+
+| Komponente | Zustand |
+|---|---|
+| `FeedbackComponent` | `testimonials`, `currentIndex` (+ `current` als `computed`) |
+| `FormComponent` | `checkbox`, `sending`, `feedback` |
+| `HeaderComponent` | `activeSection`, `showMenu` |
+| `LanguageService` | `currentLanguage` |
+| `MenuService` | `mobileMenuVisible` |
+
+Ausnahme ist `FormComponent.user`: Diese Werte gehören `ngModel`, und jede
+Änderung stammt aus einem Input-Event im eigenen Template – das markiert die
+Komponente ohnehin als dirty.
+
+Die ESLint-Regel `prefer-on-push-component-change-detection` steht auf
+`error` und hält den Zustand fest.

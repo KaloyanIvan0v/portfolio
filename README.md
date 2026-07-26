@@ -9,7 +9,7 @@ Persönliche Portfolio-Website: einseitige Angular-Anwendung, zweisprachig
 
 | | |
 |---|---|
-| Framework | Angular 22, ausschließlich Standalone Components |
+| Framework | Angular 22, Standalone Components, zoneless, `OnPush` |
 | Sprache | TypeScript 6 (strict, inkl. `strictTemplates`) |
 | Styling | SCSS mit zentralen Design-Tokens, keine UI-Bibliothek |
 | i18n | `@ngx-translate` mit eigenem HTTP-Loader |
@@ -31,13 +31,11 @@ npm start          # Dev-Server auf http://localhost:4200
 | `npm start` | Dev-Server mit Hot Reload |
 | `npm run build` | Production-Build nach `dist/portfolio` |
 | `npm test` | Unit-Tests (öffnet Chrome, Watch-Modus) |
+| `npm run test:ci` | Unit-Tests einmalig, headless |
 | `npm run lint` | ESLint inkl. Template-Accessibility-Regeln |
 
-Für CI oder einen einmaligen Durchlauf:
-
-```bash
-npx ng test --watch=false --browsers=ChromeHeadless
-```
+Bei jedem Push auf `main` und bei jedem Pull Request laufen Lint, Tests und
+Build über GitHub Actions (`.github/workflows/ci.yml`).
 
 ## Aufbau
 
@@ -62,10 +60,9 @@ Beide Sprachdateien müssen denselben Satz an Keys haben.
 
 ## Bekannte offene Punkte
 
-- Alle Komponenten laufen auf `ChangeDetectionStrategy.Eager` statt auf dem
-  Angular-22-Default `OnPush` — die Umstellung setzt Signals für den
-  restlichen mutierbaren Komponenten-State voraus.
 - Die Testsuite besteht überwiegend aus Smoke-Tests; echte Verhaltenstests
-  gibt es nur für Slider, Formularvalidierung, `LanguageService` und
-  `MenuService`.
-- Keine CI-Pipeline, kein E2E-Test.
+  gibt es nur für Slider, Formularvalidierung, `LanguageService`,
+  `MenuService` und `TranslationLoader`.
+- Kein E2E-Test.
+- `TESTIMONIAL_IMAGES` ist per Index an das `feedback`-Array der i18n-Dateien
+  gekoppelt; beide müssen gleich lang bleiben.
