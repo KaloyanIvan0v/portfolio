@@ -1,5 +1,4 @@
-import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { DOCUMENT, Injectable, inject, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 export type Language = 'en' | 'de';
@@ -20,38 +19,36 @@ function readStoredLanguage(): Language {
 
 /**
  * Single owner of the app language: keeps TranslateService,
- * localStorage and all subscribers in sync.
+ * localStorage and all readers in sync.
  */
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
   private translate = inject(TranslateService);
+  private document = inject(DOCUMENT);
 
-  private languageSubject: BehaviorSubject<Language>;
-  currentLanguage$;
+  private readonly language = signal<Language>(FALLBACK);
+
+  /** The language currently in use. */
+  readonly currentLanguage = this.language.asReadonly();
 
   constructor() {
     const saved = readStoredLanguage();
     this.translate.setFallbackLang(FALLBACK);
     this.translate.use(saved);
-    document.documentElement.lang = saved;
-    this.languageSubject = new BehaviorSubject<Language>(saved);
-    this.currentLanguage$ = this.languageSubject.asObservable();
-  }
-
-  get currentLanguage(): Language {
-    return this.languageSubject.value;
+    this.document.documentElement.lang = saved;
+    this.language.set(saved);
   }
 
   changeLanguage(language: Language): void {
     this.translate.use(language);
     localStorage.setItem(STORAGE_KEY, language);
-    document.documentElement.lang = language;
-    this.languageSubject.next(language);
+    this.document.documentElement.lang = language;
+    this.language.set(language);
   }
 
   toggleLanguage(): void {
-    this.changeLanguage(this.currentLanguage === 'en' ? 'de' : 'en');
+    this.changeLanguage(this.language() === 'en' ? 'de' : 'en');
   }
 }

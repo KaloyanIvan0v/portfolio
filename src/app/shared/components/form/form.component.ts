@@ -1,5 +1,9 @@
-import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  signal,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -8,39 +12,45 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzzpyqle';
 const FEEDBACK_DURATION_MS = 4000;
 
 type FeedbackKind = 'success' | 'error';
+interface Feedback {
+  key: string;
+  kind: FeedbackKind;
+  active: boolean;
+}
 
 @Component({
   selector: 'app-form',
-  imports: [CommonModule, FormsModule, TranslatePipe, RouterLink],
+  imports: [FormsModule, TranslatePipe, RouterLink],
   templateUrl: './form.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
   private hideFeedbackTimer?: ReturnType<typeof setTimeout>;
 
-  checkbox = false;
-  sending = false;
+  readonly checkbox = signal(false);
+  readonly sending = signal(false);
 
-  constructor() {
-    inject(DestroyRef).onDestroy(() => clearTimeout(this.hideFeedbackTimer));
-  }
+  /** i18n key of the message shown after submitting, plus its state. */
+  readonly feedback = signal<Feedback>({
+    key: '',
+    kind: 'success',
+    active: false,
+  });
 
+  // Plain object rather than a signal: ngModel owns these values and every
+  // change originates from an input event in this component's own template.
   user = {
     name: '',
     email: '',
     message: '',
   };
 
-  /** i18n key of the message shown after submitting, plus its state. */
-  feedback: { key: string; kind: FeedbackKind; active: boolean } = {
-    key: '',
-    kind: 'success',
-    active: false,
-  };
+  constructor() {
+    inject(DestroyRef).onDestroy(() => clearTimeout(this.hideFeedbackTimer));
+  }
 
   onSubmit(userForm: NgForm): void {
-    if (!this.checkbox || !userForm.valid || this.sending) {
+    if (!this.checkbox() || !userForm.valid || this.sending()) {
       userForm.form.markAllAsTouched();
       return;
     }
@@ -48,7 +58,7 @@ export class FormComponent {
   }
 
   private sendMail(userForm: NgForm): void {
-    this.sending = true;
+    this.sending.set(true);
     const body = JSON.stringify(this.user);
 
     fetch(FORMSPREE_ENDPOINT, {
@@ -70,22 +80,22 @@ export class FormComponent {
         this.showFeedback('form.errorMessage', 'error');
       })
       .finally(() => {
-        this.sending = false;
+        this.sending.set(false);
       });
   }
 
   private clearForm(userForm: NgForm): void {
     userForm.resetForm();
-    this.checkbox = false;
+    this.checkbox.set(false);
   }
 
   private showFeedback(key: string, kind: FeedbackKind): void {
-    this.feedback = { key, kind, active: true };
+    this.feedback.set({ key, kind, active: true });
     // Restart the countdown, otherwise the timer of a previous submission
     // would hide this message early.
     clearTimeout(this.hideFeedbackTimer);
     this.hideFeedbackTimer = setTimeout(() => {
-      this.feedback.active = false;
+      this.feedback.update((feedback) => ({ ...feedback, active: false }));
     }, FEEDBACK_DURATION_MS);
   }
 }

@@ -15,11 +15,6 @@ module.exports = defineConfig([
     ],
     processor: angular.processInlineTemplates,
     rules: {
-      // Downgraded, not dismissed: switching to OnPush requires moving the
-      // remaining mutable component state (slider index, form feedback,
-      // active nav item) to signals first, otherwise timer- and
-      // subscription-driven updates would stop reaching the view.
-      "@angular-eslint/prefer-on-push-component-change-detection": "warn",
       "@angular-eslint/directive-selector": [
         "error",
         {

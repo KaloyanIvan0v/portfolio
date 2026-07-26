@@ -14,15 +14,15 @@ describe('LanguageService', () => {
   });
 
   it('should default to english', () => {
-    expect(service.currentLanguage).toBe('en');
+    expect(service.currentLanguage()).toBe('en');
   });
 
   it('should toggle the language and persist it', () => {
     service.toggleLanguage();
-    expect(service.currentLanguage).toBe('de');
+    expect(service.currentLanguage()).toBe('de');
     expect(localStorage.getItem('language')).toBe('de');
     service.toggleLanguage();
-    expect(service.currentLanguage).toBe('en');
+    expect(service.currentLanguage()).toBe('en');
   });
 
   it('should reflect the chosen language on the document element', () => {

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeroSectionComponent } from '../hero-section/hero-section.component';
 import { AboutMeComponent } from '../about-me/about-me.component';
 import { MySkillsComponent } from '../my-skills/my-skills.component';
@@ -19,7 +19,6 @@ import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
     MobileMenuComponent,
   ],
   templateUrl: './main-content.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main-content.component.scss',
 })
 export class MainContentComponent {}

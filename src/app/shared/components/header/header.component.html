@@ -5,29 +5,43 @@
         <img src="assets/img/06-header-section/kaloyan.png" alt="Kaloyan Ivanov logo" />
       </a>
     </div>
-    @if (showMenu) {
+    @if (showMenu()) {
       <div class="menu">
         <ul>
           <li>
-            <a href="#about" (click)="setActive('about me')">
+            <a
+              href="#about"
+              (click)="setActive('about me')"
+              [attr.aria-current]="activeSection() === 'about me' ? 'location' : null"
+            >
               {{ "header.menu.about" | translate }}</a
             >
             <div
-              [ngClass]="{ 'purple-line': activeSection === 'about me' }"
+              [class.purple-line]="activeSection() === 'about me'"
               class="purple-line"
             ></div>
           </li>
           <li>
-            <a href="#skills" (click)="setActive('skills')">{{
+            <a
+              href="#skills"
+              (click)="setActive('skills')"
+              [attr.aria-current]="activeSection() === 'skills' ? 'location' : null"
+              >{{
               "header.menu.skills" | translate
             }}</a>
-            <div [ngClass]="{ 'purple-line': activeSection === 'skills' }"></div>
+            <div [class.purple-line]="activeSection() === 'skills'"></div>
           </li>
           <li>
-            <a href="#portfolio" (click)="setActive('portfolio')">{{
+            <a
+              href="#portfolio"
+              (click)="setActive('portfolio')"
+              [attr.aria-current]="
+                activeSection() === 'portfolio' ? 'location' : null
+              "
+              >{{
               "header.menu.portfolio" | translate
             }}</a>
-            <div [ngClass]="{ 'purple-line': activeSection === 'portfolio' }"></div>
+            <div [class.purple-line]="activeSection() === 'portfolio'"></div>
           </li>
         </ul>
         <app-language-switch></app-language-switch>

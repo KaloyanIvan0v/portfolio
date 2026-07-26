@@ -1,6 +1,6 @@
 <section
   class="project"
-  [class.reverse]="index % 2 === 1"
+  [class.reverse]="index() % 2 === 1"
   data-aos="fade-up"
   data-aos-duration="1000"
   data-aos-offset="350"
@@ -9,14 +9,14 @@
     <img
       data-aos="flip-up"
       data-aos-offset="230"
-      [src]="project.imgPath"
-      [alt]="project.name + ' screenshot'"
+      [src]="project().imgPath"
+      [alt]="project().name + ' screenshot'"
     />
   </div>
   <div class="project-data">
-    <h3 class="project-title">{{ project.name }}</h3>
+    <h3 class="project-title">{{ project().name }}</h3>
     <div class="tech-stack">
-      @for (tech of project.techStack; track tech; let last = $last) {
+      @for (tech of project().techStack; track tech; let last = $last) {
         <span class="tech">{{ tech }}</span>
         @if (!last) {
           <span class="divider">|</span>
@@ -24,20 +24,20 @@
       }
     </div>
     <div class="project-description-text">
-      {{ project.descriptionKey | translate }}
+      {{ project().descriptionKey | translate }}
     </div>
     <div class="project-buttons">
       <a
         target="_blank"
         rel="noopener"
-        [href]="project.liveTestUrl"
+        [href]="project().liveTestUrl"
         class="button-optic btn-purple live-test"
         >Live test</a
       >
       <a
         target="_blank"
         rel="noopener"
-        [href]="project.gitHubUrl"
+        [href]="project().gitHubUrl"
         class="button-optic btn-empty git-hub"
         >GitHub</a
       >

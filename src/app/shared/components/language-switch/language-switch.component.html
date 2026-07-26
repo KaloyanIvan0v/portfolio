@@ -4,7 +4,7 @@
       type="checkbox"
       [id]="toggleId"
       aria-label="Switch language between English and German"
-      [checked]="(currentLanguage$ | async) === 'de'"
+      [checked]="currentLanguage() === 'de'"
       (change)="toggleLanguage()"
     />
     <label [attr.for]="toggleId" class="slider"></label>

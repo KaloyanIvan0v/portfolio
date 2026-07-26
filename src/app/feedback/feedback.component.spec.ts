@@ -14,11 +14,11 @@ describe('FeedbackComponent', () => {
 
     fixture = TestBed.createComponent(FeedbackComponent);
     component = fixture.componentInstance;
-    component.testimonials = [
+    component.testimonials.set([
       { author: 'A', feedback: 'first' },
       { author: 'B', feedback: 'second' },
-    ];
-    component.currentIndex = 0;
+    ]);
+    component.currentIndex.set(0);
   });
 
   it('should create', () => {
@@ -27,19 +27,19 @@ describe('FeedbackComponent', () => {
 
   it('should wrap to the last testimonial when going back from the first', () => {
     component.prevTestimonial();
-    expect(component.currentIndex).toBe(1);
+    expect(component.currentIndex()).toBe(1);
   });
 
   it('should wrap to the first testimonial when going past the last', () => {
-    component.currentIndex = 1;
+    component.currentIndex.set(1);
     component.nextTestimonial();
-    expect(component.currentIndex).toBe(0);
+    expect(component.currentIndex()).toBe(0);
   });
 
   it('should not throw when there are no testimonials', () => {
-    component.testimonials = [];
-    component.currentIndex = 0;
+    component.testimonials.set([]);
+    component.currentIndex.set(0);
     expect(() => component.nextTestimonial()).not.toThrow();
-    expect(component.currentIndex).toBe(0);
+    expect(component.currentIndex()).toBe(0);
   });
 });

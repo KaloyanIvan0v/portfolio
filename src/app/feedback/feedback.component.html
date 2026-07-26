@@ -6,16 +6,16 @@
       </div>
       <div class="testimonial-text-and-author">
         <div class="testimonial-text">
-          <p>{{ current?.feedback }}</p>
+          <p>{{ current()?.feedback }}</p>
         </div>
         <div class="testimonial-author">
           <div class="purple-line-author"></div>
-          <p>{{ current?.author }}</p>
+          <p>{{ current()?.author }}</p>
         </div>
       </div>
     </div>
     <div class="testimonial-img">
-      <img [src]="images[currentIndex]" [alt]="current?.author || ''" />
+      <img [src]="images[currentIndex()]" [alt]="current()?.author || ''" />
       <div class="purple-line-img"></div>
     </div>
   </div>
@@ -31,16 +31,16 @@
         alt=""
       />
     </button>
-    @for (item of testimonials; track $index) {
+    @for (item of testimonials(); track $index) {
       <button
         class="icon-button dot-position"
         (click)="select($index)"
         [attr.aria-label]="'Show testimonial ' + ($index + 1)"
-        [attr.aria-current]="$index === currentIndex"
+        [attr.aria-current]="$index === currentIndex()"
       >
         <img
           [src]="
-            $index === currentIndex
+            $index === currentIndex()
               ? 'assets/img/04-feedback-section/purple-dot.png'
               : 'assets/img/04-feedback-section/green-dot.png'
           "

@@ -2,10 +2,8 @@
   <!-- Name Field -->
   <div data-aos="fade-up" data-aos-duration="1000" class="input-wrapper">
     <div
-      [ngClass]="{
-        'error-input-border': name.invalid && name.touched,
-        'valid-input-border': name.valid && name.touched
-      }"
+      [class.error-input-border]="name.invalid && name.touched"
+      [class.valid-input-border]="name.valid && name.touched"
       class="input-div"
     >
       <input
@@ -37,10 +35,8 @@
   <!-- Email Field -->
   <div data-aos="fade-up" data-aos-duration="1000" class="input-wrapper">
     <div
-      [ngClass]="{
-        'error-input-border': email.invalid && email.touched,
-        'valid-input-border': email.valid && email.touched
-      }"
+      [class.error-input-border]="email.invalid && email.touched"
+      [class.valid-input-border]="email.valid && email.touched"
       class="input-div"
     >
       <input
@@ -73,10 +69,8 @@
   <!-- Message Field -->
   <div data-aos="fade-up" data-aos-duration="1000" class="input-wrapper">
     <div
-      [ngClass]="{
-        'error-input-border': message.invalid && message.touched,
-        'valid-input-border': message.valid && message.touched
-      }"
+      [class.error-input-border]="message.invalid && message.touched"
+      [class.valid-input-border]="message.valid && message.touched"
       class="input-div"
     >
       <div class="textarea-container">
@@ -115,7 +109,8 @@
       id="privacy"
       name="privacy"
       class="privacy-checkbox"
-      [(ngModel)]="checkbox"
+      [ngModel]="checkbox()"
+      (ngModelChange)="checkbox.set($event)"
     />
     <label for="privacy">
       {{ "form.privacy.policyText" | translate }}
@@ -125,7 +120,7 @@
       {{ "form.privacy.policyTextContinuation" | translate }}
     </label>
   </div>
-  @if (!checkbox && userForm.submitted) {
+  @if (!checkbox() && userForm.submitted) {
     <div class="input-div-error">
       <p>{{ "form.accept" | translate }}</p>
     </div>
@@ -137,22 +132,20 @@
     data-aos-duration="1000"
     type="submit"
     class="btn-green button-optic"
-    [disabled]="sending"
-    [ngClass]="{ 'button-disabled': userForm.invalid || !checkbox || sending }"
+    [disabled]="sending()"
+    [class.button-disabled]="userForm.invalid || !checkbox() || sending()"
   >
     {{ "form.send" | translate }}
   </button>
 
   <div
-    [ngClass]="{
-      'v-none': !feedback.active,
-      'v-active': feedback.active,
-      'feedback-error': feedback.kind === 'error'
-    }"
+    [class.v-none]="!feedback().active"
+    [class.v-active]="feedback().active"
+    [class.feedback-error]="feedback().kind === 'error'"
     class="form-send-feedback"
     role="status"
     aria-live="polite"
   >
-    <p>{{ feedback.key | translate }}</p>
+    <p>{{ feedback().key | translate }}</p>
   </div>
 </form>

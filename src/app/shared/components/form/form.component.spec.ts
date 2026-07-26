@@ -30,7 +30,7 @@ describe('FormComponent', () => {
       form: { markAllAsTouched },
     } as unknown as NgForm;
 
-    component.checkbox = false;
+    component.checkbox.set(false);
     component.onSubmit(form);
 
     expect(markAllAsTouched).toHaveBeenCalled();
@@ -44,7 +44,7 @@ describe('FormComponent', () => {
       form: { markAllAsTouched: jasmine.createSpy('markAllAsTouched') },
     } as unknown as NgForm;
 
-    component.checkbox = false;
+    component.checkbox.set(false);
     component.onSubmit(form);
 
     expect(fetchSpy).not.toHaveBeenCalled();
