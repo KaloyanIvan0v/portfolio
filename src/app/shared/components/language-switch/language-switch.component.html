@@ -2,11 +2,11 @@
   <div class="switch">
     <input
       type="checkbox"
-      id="toggle"
+      [id]="toggleId"
       aria-label="Switch language between English and German"
       [checked]="(currentLanguage$ | async) === 'de'"
       (change)="toggleLanguage()"
     />
-    <label for="toggle" class="slider"></label>
+    <label [attr.for]="toggleId" class="slider"></label>
   </div>
 </div>

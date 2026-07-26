@@ -7,8 +7,20 @@
 
 html {
   background-color: $primary-background-color;
+  // `clip` instead of `hidden`: it never turns the element into a scroll
+  // container, so decorative overflow can't be scrolled to on mobile.
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+// Set by MenuService while the fullscreen mobile menu is open. It has to sit on
+// <html> too: that element owns the viewport's scrolling once it has an
+// overflow value of its own.
+html.menu-open,
+html.menu-open body {
+  overflow-y: hidden;
+  overscroll-behavior: none;
 }

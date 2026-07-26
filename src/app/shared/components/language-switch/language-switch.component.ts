@@ -2,6 +2,10 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from './../../services/language.service';
 
+// Ensures a unique checkbox id per instance (header + mobile menu render
+// this component at the same time, so a fixed id would collide).
+let nextId = 0;
+
 @Component({
   selector: 'app-language-switch',
   standalone: true,
@@ -12,6 +16,7 @@ import { LanguageService } from './../../services/language.service';
 export class LanguageSwitchComponent {
   private languageService = inject(LanguageService);
 
+  readonly toggleId = `lang-toggle-${nextId++}`;
   readonly currentLanguage$ = this.languageService.currentLanguage$;
 
   toggleLanguage(): void {
