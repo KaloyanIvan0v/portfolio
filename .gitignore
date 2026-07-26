@@ -21,8 +21,8 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+# settings.json stays untracked: it holds personal theme and font sizes.
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
