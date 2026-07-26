@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroSectionComponent } from './hero-section.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../testing/common-testing';
+import { commonTestProviders } from '../../testing/common-testing';
 
 describe('HeroSectionComponent', () => {
   let component: HeroSectionComponent;
@@ -11,7 +8,7 @@ describe('HeroSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroSectionComponent, ...commonTestImports],
+      imports: [HeroSectionComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

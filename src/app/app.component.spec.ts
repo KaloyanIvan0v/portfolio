@@ -1,14 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../testing/common-testing';
+import { commonTestProviders } from '../testing/common-testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, ...commonTestImports],
+      imports: [AppComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
   });

@@ -1,9 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { LanguageService } from './language.service';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../testing/common-testing';
+import { commonTestProviders } from '../../../testing/common-testing';
 
 describe('LanguageService', () => {
   let service: LanguageService;
@@ -11,7 +8,6 @@ describe('LanguageService', () => {
   beforeEach(() => {
     localStorage.removeItem('language');
     TestBed.configureTestingModule({
-      imports: [...commonTestImports],
       providers: [...commonTestProviders],
     });
     service = TestBed.inject(LanguageService);

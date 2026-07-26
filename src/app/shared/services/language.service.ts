@@ -33,7 +33,7 @@ export class LanguageService {
 
   constructor() {
     const saved = readStoredLanguage();
-    this.translate.setDefaultLang(FALLBACK);
+    this.translate.setFallbackLang(FALLBACK);
     this.translate.use(saved);
     document.documentElement.lang = saved;
     this.languageSubject = new BehaviorSubject<Language>(saved);

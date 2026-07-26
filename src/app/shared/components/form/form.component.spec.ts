@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
 import { FormComponent } from './form.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../../testing/common-testing';
+import { commonTestProviders } from '../../../../testing/common-testing';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -12,7 +9,7 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormComponent, ...commonTestImports],
+      imports: [FormComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

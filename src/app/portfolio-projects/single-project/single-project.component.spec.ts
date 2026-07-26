@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SingleProjectComponent } from './single-project.component';
 import { Project } from '../../shared/models/project.model';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../testing/common-testing';
+import { commonTestProviders } from '../../../testing/common-testing';
 
 const PROJECT: Project = {
   name: 'Test Project',
@@ -21,7 +18,7 @@ describe('SingleProjectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SingleProjectComponent, ...commonTestImports],
+      imports: [SingleProjectComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

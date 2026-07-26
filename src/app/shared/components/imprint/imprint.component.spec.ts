@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImprintComponent } from './imprint.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../../testing/common-testing';
+import { commonTestProviders } from '../../../../testing/common-testing';
 
 describe('ImprintComponent', () => {
   let component: ImprintComponent;
@@ -11,7 +8,7 @@ describe('ImprintComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImprintComponent, ...commonTestImports],
+      imports: [ImprintComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

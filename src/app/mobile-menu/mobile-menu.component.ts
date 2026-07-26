@@ -8,16 +8,16 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { MenuService } from '../shared/services/menu.service';
 import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
 
 @Component({
-    selector: 'app-mobile-menu',
-    imports: [TranslateModule, LanguageSwitchComponent],
-    templateUrl: './mobile-menu.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './mobile-menu.component.scss'
+  selector: 'app-mobile-menu',
+  imports: [TranslatePipe, LanguageSwitchComponent],
+  templateUrl: './mobile-menu.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './mobile-menu.component.scss',
 })
 export class MobileMenuComponent {
   readonly menuService = inject(MenuService);

@@ -6,11 +6,10 @@ import { TESTIMONIAL_IMAGES } from '../shared/data/testimonials';
 import { Testimonial } from '../shared/models/testimonial.model';
 
 @Component({
-    selector: 'app-feedback',
-    imports: [],
-    templateUrl: './feedback.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrls: ['./feedback.component.scss']
+  selector: 'app-feedback',
+  templateUrl: './feedback.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent {
   private translate = inject(TranslateService);

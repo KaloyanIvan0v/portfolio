@@ -5,7 +5,7 @@ Kurzer Leitfaden, um sich im Projekt zurechtzufinden. Für Setup/Scripts siehe
 
 ## Überblick
 
-Einseitiges Portfolio (Angular 17, Standalone Components, zweisprachig
+Einseitiges Portfolio (Angular 22, Standalone Components, zweisprachig
 DE/EN). Kein Backend – das Kontaktformular postet direkt an Formspree.
 
 ```
@@ -43,9 +43,10 @@ src/
 ## Die drei Konzepte, die überall wiederkehren
 
 ### 1. Standalone Components
-Es gibt kein zentrales `NgModule`. Jede Komponente deklariert ihre eigenen
-`imports: [...]`. Faustregeln:
-- nutzt das Template `| translate` → `TranslateModule` importieren
+Es gibt kein zentrales `NgModule`; seit Angular 19 ist `standalone` der
+Default und wird nicht mehr hingeschrieben. Jede Komponente deklariert ihre
+eigenen `imports: [...]`. Faustregeln:
+- nutzt das Template `| translate` → `TranslatePipe` importieren
 - nutzt es `routerLink` → `RouterLink` importieren
 - nutzt es `@if` / `@for` → **kein** Import nötig (eingebauter Control-Flow)
 
@@ -58,7 +59,8 @@ Kein Text steht fest im HTML, sondern als Key:
 
 Der Wert liegt in `src/assets/i18n/en.json` bzw. `de.json`. **Text ändern =
 JSON ändern**, nicht das Template. Geladen werden die Dateien über
-`TranslationLoader` (HTTP), konfiguriert in `app.config.ts`.
+`TranslationLoader` (HTTP), verdrahtet in `app.config.ts` über
+`provideTranslateService({ fallbackLang: 'en', loader: … })`.
 
 ### 3. Services als "Single Source of Truth"
 State lebt in Services, Komponenten injizieren sie mit `inject()` und
@@ -126,3 +128,14 @@ Gemeinsame Test-Provider (Translate/Router/HttpClient) liegen in
   Markup nutzt `data-aos="…"`-Attribute)
 - **Formspree** – nimmt die Kontaktformular-Posts entgegen (Endpoint in
   `form.component.ts`)
+
+## Change Detection
+
+Angular 22 verwendet standardmäßig `OnPush`. Beim Upgrade hat die Migration
+jede Komponente explizit auf `ChangeDetectionStrategy.Eager` gesetzt und
+`provideZoneChangeDetection()` in `main.ts` ergänzt, um das bisherige
+Verhalten zu erhalten. Beides ist Übergangszustand: Solange Slider-Index,
+Formular-Feedback und aktiver Navigationspunkt einfache Felder statt Signals
+sind, würden Timer- und Subscription-getriebene Updates unter `OnPush` die
+View nicht mehr erreichen. Die ESLint-Regel
+`prefer-on-push-component-change-detection` steht deshalb auf `warn`.

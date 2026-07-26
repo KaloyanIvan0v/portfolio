@@ -6,11 +6,11 @@ import { LanguageService } from './shared/services/language.service';
 import AOS from 'aos';
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, HeaderComponent, FooterComponent],
-    templateUrl: './app.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   // Injected so the language is initialised once, app-wide.

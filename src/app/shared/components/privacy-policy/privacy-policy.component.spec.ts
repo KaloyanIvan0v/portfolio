@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrivacyPolicyComponent } from './privacy-policy.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../../testing/common-testing';
+import { commonTestProviders } from '../../../../testing/common-testing';
 
 describe('PrivacyPolicyComponent', () => {
   let component: PrivacyPolicyComponent;
@@ -11,7 +8,7 @@ describe('PrivacyPolicyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrivacyPolicyComponent, ...commonTestImports],
+      imports: [PrivacyPolicyComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

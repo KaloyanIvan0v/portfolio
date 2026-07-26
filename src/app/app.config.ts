@@ -1,7 +1,10 @@
 import { provideHttpClient, withXhr } from '@angular/common/http';
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {
+  provideTranslateLoader,
+  provideTranslateService,
+} from '@ngx-translate/core';
 import { TranslationLoader } from './shared/services/translation-loader.service';
 
 import { routes } from './app.routes';
@@ -10,13 +13,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(withXhr()),
-    importProvidersFrom(
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useClass: TranslationLoader,
-        },
-      })
-    ),
+    provideTranslateService({
+      fallbackLang: 'en',
+      loader: provideTranslateLoader(TranslationLoader),
+    }),
   ],
 };

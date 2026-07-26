@@ -9,8 +9,8 @@ Persönliche Portfolio-Website: einseitige Angular-Anwendung, zweisprachig
 
 | | |
 |---|---|
-| Framework | Angular 17, ausschließlich Standalone Components |
-| Sprache | TypeScript (strict, inkl. `strictTemplates`) |
+| Framework | Angular 22, ausschließlich Standalone Components |
+| Sprache | TypeScript 6 (strict, inkl. `strictTemplates`) |
 | Styling | SCSS mit zentralen Design-Tokens, keine UI-Bibliothek |
 | i18n | `@ngx-translate` mit eigenem HTTP-Loader |
 | Animationen | AOS (scroll-getriggert) |
@@ -62,7 +62,10 @@ Beide Sprachdateien müssen denselben Satz an Keys haben.
 
 ## Bekannte offene Punkte
 
-- Angular 17 ist nicht mehr im Support; ein Upgrade auf 22 steht aus.
+- Alle Komponenten laufen auf `ChangeDetectionStrategy.Eager` statt auf dem
+  Angular-22-Default `OnPush` — die Umstellung setzt Signals für den
+  restlichen mutierbaren Komponenten-State voraus.
 - Die Testsuite besteht überwiegend aus Smoke-Tests; echte Verhaltenstests
-  gibt es nur für Slider, Formularvalidierung und `LanguageService`.
+  gibt es nur für Slider, Formularvalidierung, `LanguageService` und
+  `MenuService`.
 - Keine CI-Pipeline, kein E2E-Test.

@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SkillsGridComponent } from './skills-grid.component';
-import {
-  commonTestImports,
-  commonTestProviders,
-} from '../../../testing/common-testing';
+import { commonTestProviders } from '../../../testing/common-testing';
 
 describe('SkillsGridComponent', () => {
   let component: SkillsGridComponent;
@@ -11,7 +8,7 @@ describe('SkillsGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SkillsGridComponent, ...commonTestImports],
+      imports: [SkillsGridComponent],
       providers: [...commonTestProviders],
     }).compileComponents();
 

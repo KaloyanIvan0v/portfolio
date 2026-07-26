@@ -3,11 +3,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Skill } from '../../shared/models/skill.model';
 
 @Component({
-    selector: 'app-skills-grid',
-    imports: [],
-    templateUrl: './skills-grid.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './skills-grid.component.scss'
+  selector: 'app-skills-grid',
+  templateUrl: './skills-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './skills-grid.component.scss',
 })
 export class SkillsGridComponent {
   readonly skills: Skill[] = [

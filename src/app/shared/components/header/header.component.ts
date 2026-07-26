@@ -1,6 +1,6 @@
 import { Component, DestroyRef, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
@@ -8,11 +8,11 @@ import { LanguageSwitchComponent } from './../language-switch/language-switch.co
 import { MenuService } from './../../services/menu.service';
 
 @Component({
-    selector: 'app-header',
-    imports: [CommonModule, TranslateModule, RouterLink, LanguageSwitchComponent],
-    templateUrl: './header.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './header.component.scss'
+  selector: 'app-header',
+  imports: [CommonModule, TranslatePipe, RouterLink, LanguageSwitchComponent],
+  templateUrl: './header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
   private router = inject(Router);

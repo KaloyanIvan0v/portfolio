@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzzpyqle';
 const FEEDBACK_DURATION_MS = 4000;
@@ -10,11 +10,11 @@ const FEEDBACK_DURATION_MS = 4000;
 type FeedbackKind = 'success' | 'error';
 
 @Component({
-    selector: 'app-form',
-    imports: [CommonModule, FormsModule, TranslateModule, RouterLink],
-    templateUrl: './form.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrls: ['./form.component.scss']
+  selector: 'app-form',
+  imports: [CommonModule, FormsModule, TranslatePipe, RouterLink],
+  templateUrl: './form.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
   private hideFeedbackTimer?: ReturnType<typeof setTimeout>;
