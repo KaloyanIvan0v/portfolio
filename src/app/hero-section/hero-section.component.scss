@@ -74,6 +74,10 @@ section {
   width: 838px;
   line-height: 1.1;
   padding-bottom: 22px;
+  gap: 32px;
+  // Height of the name/role pair — 1.1 (line-height) * their two font sizes.
+  // The rotated greeting is sized off this so it comes out equally long.
+  --intro-block-height: min(163px, 8.14vw);
 }
 
 .cta-button {
@@ -89,16 +93,30 @@ section {
 .intro-greeting {
   height: max-content;
   @include dFlex($jc: space-between);
-  transform: rotate(-90deg);
-  font-size: 64px;
+  // Vertical writing mode rather than a rotation: a rotated box keeps its
+  // horizontal footprint and would reserve the whole text width as dead space.
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  // Length of the greeting in em. It differs per language, so each one needs
+  // its own font size to end up as long as the block next to it is tall.
+  --greeting-length: 2.75; // "I am"
+  font-size: calc(var(--intro-block-height) / var(--greeting-length));
   p {
     white-space: nowrap;
   }
 }
 
+:host-context([lang="de"]) .intro-greeting {
+  --greeting-length: 3.8; // "Ich bin"
+}
+
+// The lines below are `white-space: nowrap`, so they cannot reflow when the
+// longest translation ("FULLSTACK-ENTWICKLER") outgrows the viewport. The vw
+// term shrinks them before that happens; the px term is the design size and
+// takes over from ~2000px viewport width upwards.
 .intro-name {
   p {
-    font-size: 84px;
+    font-size: min(84px, 4.2vw);
     font-weight: 700;
     white-space: nowrap;
   }
@@ -106,7 +124,7 @@ section {
 
 .intro-role {
   p {
-    font-size: 64px;
+    font-size: min(64px, 3.2vw);
     font-weight: 400;
     color: $secondary-color;
     text-transform: uppercase;

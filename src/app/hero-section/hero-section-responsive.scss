@@ -15,11 +15,6 @@
   .cta-button {
     position: unset;
   }
-  .intro-greeting {
-    p {
-      font-size: 46px;
-    }
-  }
   .intro-name {
     p {
       font-size: 48px;
@@ -61,6 +56,8 @@
     @include dFlex($jc: center);
     margin-right: 5vw;
     margin-bottom: 0px;
+    gap: 12px;
+    --intro-block-height: 90px; // 1.1 * (48px + 34px)
   }
 
   .cta-btn {
@@ -84,9 +81,7 @@
   }
   .intro-text {
     padding-bottom: 0px;
-  }
-  .intro-greeting {
-    font-size: 48px;
+    --intro-block-height: 123px; // 1.1 * (64px + 48px)
   }
   .intro-name {
     p {
@@ -107,22 +102,24 @@
 }
 
 @media (max-width: 830px) {
+  // The lines are `white-space: nowrap`, so they have to be sized small enough
+  // that the longest translation still clears the padding on both sides.
   .intro-name {
     p {
-      font-size: calc(100vw / 10);
+      font-size: calc(100vw / 11);
     }
   }
 
   .intro-role {
     p {
-      font-size: calc(100vw / 14);
+      font-size: calc(100vw / 16);
     }
   }
 
-  .intro-greeting {
-    p {
-      font-size: calc(100vw / 14);
-    }
+  .intro-text {
+    margin-right: 0px;
+    padding-inline: 16px;
+    --intro-block-height: 16.9vw; // 1.1 * (100vw / 11 + 100vw / 16)
   }
 
   // .image-wrapper {
