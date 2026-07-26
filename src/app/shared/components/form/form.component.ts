@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -17,8 +17,14 @@ type FeedbackKind = 'success' | 'error';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
+  private hideFeedbackTimer?: ReturnType<typeof setTimeout>;
+
   checkbox = false;
   sending = false;
+
+  constructor() {
+    inject(DestroyRef).onDestroy(() => clearTimeout(this.hideFeedbackTimer));
+  }
 
   user = {
     name: '',
@@ -75,7 +81,10 @@ export class FormComponent {
 
   private showFeedback(key: string, kind: FeedbackKind): void {
     this.feedback = { key, kind, active: true };
-    setTimeout(() => {
+    // Restart the countdown, otherwise the timer of a previous submission
+    // would hide this message early.
+    clearTimeout(this.hideFeedbackTimer);
+    this.hideFeedbackTimer = setTimeout(() => {
       this.feedback.active = false;
     }, FEEDBACK_DURATION_MS);
   }
