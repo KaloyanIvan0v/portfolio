@@ -10,4 +10,6 @@ export const routes: Routes = [
     path: 'privacy-policy',
     component: PrivacyPolicyComponent,
   },
+  // Anything unknown lands on the portfolio rather than an empty page.
+  { path: '**', redirectTo: '' },
 ];
