@@ -1,27 +1,68 @@
-# Portfolio
+# Portfolio — Kaloyan Ivanov
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Persönliche Portfolio-Website: einseitige Angular-Anwendung, zweisprachig
+(Deutsch/Englisch), ohne Backend.
 
-## Development server
+**Live:** [kaloyanivanov.de](https://kaloyanivanov.de/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Stack
 
-## Code scaffolding
+| | |
+|---|---|
+| Framework | Angular 17, ausschließlich Standalone Components |
+| Sprache | TypeScript (strict, inkl. `strictTemplates`) |
+| Styling | SCSS mit zentralen Design-Tokens, keine UI-Bibliothek |
+| i18n | `@ngx-translate` mit eigenem HTTP-Loader |
+| Animationen | AOS (scroll-getriggert) |
+| Tests | Karma + Jasmine |
+| Kontaktformular | Formspree (kein eigener Server) |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Schnellstart
 
-## Build
+```bash
+npm install
+npm start          # Dev-Server auf http://localhost:4200
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Scripts
 
-## Running unit tests
+| Befehl | Zweck |
+|---|---|
+| `npm start` | Dev-Server mit Hot Reload |
+| `npm run build` | Production-Build nach `dist/portfolio` |
+| `npm test` | Unit-Tests (öffnet Chrome, Watch-Modus) |
+| `npm run lint` | ESLint inkl. Template-Accessibility-Regeln |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Für CI oder einen einmaligen Durchlauf:
 
-## Running end-to-end tests
+```bash
+npx ng test --watch=false --browsers=ChromeHeadless
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Aufbau
 
-## Further help
+Die Startseite (Route `''`) stapelt die Sektionen Hero, Über mich, Skills,
+Portfolio, Feedback und Kontakt. Daneben gibt es zwei statische Routen für
+Impressum und Datenschutzerklärung.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Eine ausführliche Beschreibung der Architektur, der Datenflüsse und der
+Konventionen steht in **[ARCHITECTURE.md](ARCHITECTURE.md)**.
+
+## Inhalte ändern
+
+| Ich will ändern … | … dann hier |
+|---|---|
+| einen sichtbaren Text | `src/assets/i18n/{en,de}.json` |
+| die Projektliste | `src/app/shared/data/projects.ts` |
+| die Testimonials | `src/assets/i18n/*.json` + `src/app/shared/data/testimonials.ts` |
+| Farben / Mixins | `src/app/shared/scss/_variables.scss` |
+
+Kein sichtbarer Text steht fest im HTML — Templates enthalten nur i18n-Keys.
+Beide Sprachdateien müssen denselben Satz an Keys haben.
+
+## Bekannte offene Punkte
+
+- Angular 17 ist nicht mehr im Support; ein Upgrade auf 22 steht aus.
+- Die Testsuite besteht überwiegend aus Smoke-Tests; echte Verhaltenstests
+  gibt es nur für Slider, Formularvalidierung und `LanguageService`.
+- Keine CI-Pipeline, kein E2E-Test.

@@ -67,7 +67,7 @@ State lebt in Services, Komponenten injizieren sie mit `inject()` und
 | Service | Verantwortung |
 |---|---|
 | `LanguageService` | aktuelle Sprache: `translate.use()`, `localStorage`, `<html lang>`, `currentLanguage$` |
-| `MenuService` | Sichtbarkeit des Mobile-Menüs (Angular Signal) |
+| `MenuService` | Sichtbarkeit des Mobile-Menüs (Angular Signal), Scroll-Lock und Fokus-Rückgabe an den Öffner |
 | `TranslationLoader` | lädt die i18n-JSON-Dateien per HTTP |
 
 ## Datenfluss am Beispiel: Sprachwechsel
@@ -111,7 +111,8 @@ language-switch.component.html   Klick auf den Toggle
 ```bash
 npm start          # Dev-Server auf http://localhost:4200
 npm run build      # Production-Build
-npm test           # Unit-Tests (Karma/Jasmine, ChromeHeadless)
+npm test           # Unit-Tests (Karma/Jasmine, öffnet Chrome im Watch-Modus)
+npx ng test --watch=false --browsers=ChromeHeadless   # einmaliger Durchlauf
 npx ng lint        # ESLint inkl. Template-A11y-Regeln
 ```
 
