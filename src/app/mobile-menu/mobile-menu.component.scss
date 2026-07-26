@@ -11,14 +11,21 @@ section {
   font-size: 23px;
   gap: 33px;
   transform: translateX(100%);
-  transition: transform 0.175s ease;
+  // `visibility` matters as much as the transform here: without it the links of
+  // the closed menu stay focusable off-screen and keyboard users tab into them.
+  // Hiding is delayed by the slide duration so the animation still plays out.
+  visibility: hidden;
+  transition: transform 0.175s ease, visibility 0s 0.175s;
 
   &.v-visible-mobile-menu {
     transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.175s ease, visibility 0s;
   }
 
   &.v-none-mobile-menu {
     transform: translateX(100%);
+    visibility: hidden;
   }
 }
 

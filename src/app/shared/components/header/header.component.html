@@ -33,9 +33,12 @@
         <app-language-switch></app-language-switch>
       </div>
       <button
-        (click)="showMobileMenu()"
+        #burger
+        (click)="showMobileMenu(burger)"
         class="burger-menu"
         aria-label="Open menu"
+        aria-controls="mobile-menu"
+        [attr.aria-expanded]="mobileMenuVisible()"
       >
         <img src="assets/img/06-header-section/burger-menu.png" alt="" />
       </button>

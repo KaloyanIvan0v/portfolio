@@ -1,4 +1,5 @@
 <section
+  id="mobile-menu"
   [class.v-visible-mobile-menu]="menuService.mobileMenuVisible()"
   [class.v-none-mobile-menu]="!menuService.mobileMenuVisible()"
 >
@@ -9,7 +10,12 @@
         alt="Kaloyan Ivanov logo"
       />
     </div>
-    <button class="close-cross" (click)="hideMobileMenu()" aria-label="Close menu">
+    <button
+      #closeButton
+      class="close-cross"
+      (click)="hideMobileMenu()"
+      aria-label="Close menu"
+    >
       <img src="assets/img/07-other/close-mobil-cross.png" alt="" />
     </button>
   </div>

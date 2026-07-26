@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
   activeSection = 'about me';
   showMenu = true;
 
+  readonly mobileMenuVisible = this.menuService.mobileMenuVisible;
+
   ngOnInit(): void {
     this.router.events
       .pipe(
@@ -40,7 +42,7 @@ export class HeaderComponent implements OnInit {
     this.activeSection = section;
   }
 
-  showMobileMenu(): void {
-    this.menuService.openMobileMenu();
+  showMobileMenu(trigger: HTMLElement): void {
+    this.menuService.openMobileMenu(trigger);
   }
 }

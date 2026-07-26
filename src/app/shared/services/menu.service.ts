@@ -8,6 +8,9 @@ import { DOCUMENT } from '@angular/common';
 export class MenuService {
   private readonly document = inject(DOCUMENT);
 
+  /** The element that opened the menu — focus returns to it on close. */
+  private trigger: HTMLElement | null = null;
+
   readonly mobileMenuVisible = signal(false);
 
   constructor() {
@@ -20,11 +23,15 @@ export class MenuService {
     });
   }
 
-  openMobileMenu(): void {
+  openMobileMenu(trigger?: HTMLElement): void {
+    this.trigger = trigger ?? null;
     this.mobileMenuVisible.set(true);
   }
 
   closeMobileMenu(): void {
+    if (!this.mobileMenuVisible()) return;
     this.mobileMenuVisible.set(false);
+    this.trigger?.focus();
+    this.trigger = null;
   }
 }
