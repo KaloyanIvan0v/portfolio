@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Skill } from '../../shared/models/skill.model';
 
 @Component({
     selector: 'app-skills-grid',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './skills-grid.component.html',
     styleUrl: './skills-grid.component.scss'
 })

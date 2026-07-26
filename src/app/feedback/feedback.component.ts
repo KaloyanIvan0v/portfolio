@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TESTIMONIAL_IMAGES } from '../shared/data/testimonials';
@@ -7,7 +7,7 @@ import { Testimonial } from '../shared/models/testimonial.model';
 
 @Component({
     selector: 'app-feedback',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './feedback.component.html',
     styleUrls: ['./feedback.component.scss']
 })

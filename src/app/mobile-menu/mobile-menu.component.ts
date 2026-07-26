@@ -6,14 +6,14 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuService } from '../shared/services/menu.service';
 import { LanguageSwitchComponent } from '../shared/components/language-switch/language-switch.component';
 
 @Component({
     selector: 'app-mobile-menu',
-    imports: [TranslateModule, CommonModule, LanguageSwitchComponent],
+    imports: [TranslateModule, LanguageSwitchComponent],
     templateUrl: './mobile-menu.component.html',
     styleUrl: './mobile-menu.component.scss'
 })
