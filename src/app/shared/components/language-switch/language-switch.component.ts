@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from './../../services/language.service';
 
@@ -10,6 +10,7 @@ let nextId = 0;
     selector: 'app-language-switch',
     imports: [CommonModule],
     templateUrl: './language-switch.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./language-switch.component.scss']
 })
 export class LanguageSwitchComponent {

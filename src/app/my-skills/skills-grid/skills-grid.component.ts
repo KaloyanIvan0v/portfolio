@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Skill } from '../../shared/models/skill.model';
 
@@ -6,6 +6,7 @@ import { Skill } from '../../shared/models/skill.model';
     selector: 'app-skills-grid',
     imports: [],
     templateUrl: './skills-grid.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './skills-grid.component.scss'
 })
 export class SkillsGridComponent {

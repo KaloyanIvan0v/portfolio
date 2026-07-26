@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -13,6 +13,7 @@ type FeedbackKind = 'success' | 'error';
     selector: 'app-form',
     imports: [CommonModule, FormsModule, TranslateModule, RouterLink],
     templateUrl: './form.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./form.component.scss']
 })
 export class FormComponent {

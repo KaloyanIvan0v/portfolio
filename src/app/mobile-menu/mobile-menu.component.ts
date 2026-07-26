@@ -5,6 +5,7 @@ import {
   ViewChild,
   effect,
   inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,6 +16,7 @@ import { LanguageSwitchComponent } from '../shared/components/language-switch/la
     selector: 'app-mobile-menu',
     imports: [TranslateModule, LanguageSwitchComponent],
     templateUrl: './mobile-menu.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './mobile-menu.component.scss'
 })
 export class MobileMenuComponent {

@@ -1,4 +1,4 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -11,6 +11,7 @@ import { MenuService } from './../../services/menu.service';
     selector: 'app-header',
     imports: [CommonModule, TranslateModule, RouterLink, LanguageSwitchComponent],
     templateUrl: './header.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {

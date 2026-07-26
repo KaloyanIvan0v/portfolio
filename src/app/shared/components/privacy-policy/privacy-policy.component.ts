@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
     selector: 'app-privacy-policy',
     imports: [TranslateModule],
     templateUrl: './privacy-policy.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './privacy-policy.component.scss'
 })
 export class PrivacyPolicyComponent {}

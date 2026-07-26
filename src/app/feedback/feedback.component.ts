@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -9,6 +9,7 @@ import { Testimonial } from '../shared/models/testimonial.model';
     selector: 'app-feedback',
     imports: [],
     templateUrl: './feedback.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent {

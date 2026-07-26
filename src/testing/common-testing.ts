@@ -1,5 +1,5 @@
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -8,6 +8,6 @@ export const commonTestImports = [TranslateModule.forRoot()];
 
 export const commonTestProviders = [
   provideRouter([]),
-  provideHttpClient(),
+  provideHttpClient(withXhr()),
   provideHttpClientTesting(),
 ];

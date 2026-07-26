@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Project } from '../../shared/models/project.model';
 
@@ -6,6 +6,7 @@ import { Project } from '../../shared/models/project.model';
     selector: 'app-single-project',
     imports: [TranslateModule],
     templateUrl: './single-project.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './single-project.component.scss'
 })
 export class SingleProjectComponent {
