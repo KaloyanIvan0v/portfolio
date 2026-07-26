@@ -16,7 +16,7 @@
     position: unset;
   }
   .intro-name {
-    p {
+    h1 {
       font-size: 48px;
     }
   }
@@ -84,7 +84,7 @@
     --intro-block-height: 123px; // 1.1 * (64px + 48px)
   }
   .intro-name {
-    p {
+    h1 {
       font-size: 64px;
     }
   }
@@ -105,7 +105,7 @@
   // The lines are `white-space: nowrap`, so they have to be sized small enough
   // that the longest translation still clears the padding on both sides.
   .intro-name {
-    p {
+    h1 {
       font-size: calc(100vw / 11);
     }
   }

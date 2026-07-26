@@ -1,6 +1,6 @@
 @use "./../../../shared/scss/variables" as *;
 
-section {
+footer {
   position: relative;
   @include dFlex();
   width: 100vw;

@@ -115,7 +115,7 @@ section {
 // term shrinks them before that happens; the px term is the design size and
 // takes over from ~2000px viewport width upwards.
 .intro-name {
-  p {
+  h1 {
     font-size: min(84px, 4.2vw);
     font-weight: 700;
     white-space: nowrap;

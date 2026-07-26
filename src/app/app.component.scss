@@ -4,3 +4,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+// Landmark only — must not introduce a layout box of its own, so it overrides
+// the rule above and stays a plain full-width block.
+main {
+  display: block;
+  width: 100vw;
+}
