@@ -113,7 +113,6 @@ section {
   right: calc(-1 * ((100vw - 100%) / 2));
   top: -600px;
   z-index: -1;
-  pointer-events: none;
   // The breathing animation scales to 1.25; anchoring the origin to the right
   // edge lets it grow inwards instead of past the viewport.
   transform-origin: right center;

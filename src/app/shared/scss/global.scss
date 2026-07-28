@@ -161,10 +161,14 @@ section {
   transition: opacity 175ms ease-in-out;
 }
 
+// Every use of this is a decorative glow behind a section. They are large,
+// absolutely positioned and animated, so without this they intercept clicks on
+// whatever they happen to cover at that moment in the animation.
 .breathing-size {
   display: inline-block;
   transition: transform 0.175s ease;
   animation: breathe-size 5s infinite ease-in-out;
+  pointer-events: none;
 }
 
 @keyframes breathe-size {
