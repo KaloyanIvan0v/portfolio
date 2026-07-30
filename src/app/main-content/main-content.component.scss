@@ -1,7 +1,11 @@
 @use "./../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
-  width: 100vw;
+  width: 100%;
   @include dFlex();
 }
 

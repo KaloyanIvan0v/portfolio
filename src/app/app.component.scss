@@ -1,13 +1,19 @@
-* {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// `100%` rather than `100vw` throughout: `100vw` includes the scrollbar, which
+// made every full-width box ~15px wider than the viewport on desktop.
+:host {
+  display: block;
+  width: 100%;
 }
 
-// Landmark only — must not introduce a layout box of its own, so it overrides
-// the rule above and stays a plain full-width block.
+app-header,
+app-footer {
+  display: block;
+  width: 100%;
+}
+
+// Landmark only — must not introduce a layout box of its own, so it stays a
+// plain full-width block.
 main {
   display: block;
-  width: 100vw;
+  width: 100%;
 }

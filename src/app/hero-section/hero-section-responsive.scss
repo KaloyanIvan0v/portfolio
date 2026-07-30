@@ -118,7 +118,7 @@
 
   .intro-text {
     margin-right: 0px;
-    padding-inline: 16px;
+    padding-inline: var(--section-gutter);
     --intro-block-height: 16.9vw; // 1.1 * (100vw / 11 + 100vw / 16)
   }
 
