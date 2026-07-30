@@ -5,6 +5,26 @@
   margin: 0;
 }
 
+// The one horizontal safe area of the whole site. Header, mobile menu and every
+// section read it, so text is never closer to the edge of the screen than this
+// and always lines up vertically from section to section. Decorative accent
+// lines opt out again via the `bleed()` mixin.
+:root {
+  --section-gutter: 100px;
+}
+
+@media (max-width: $bp-gutter-md) {
+  :root {
+    --section-gutter: 48px;
+  }
+}
+
+@media (max-width: $bp-gutter-sm) {
+  :root {
+    --section-gutter: 30px;
+  }
+}
+
 html {
   background-color: $primary-background-color;
   // `clip` instead of `hidden`: it never turns the element into a scroll

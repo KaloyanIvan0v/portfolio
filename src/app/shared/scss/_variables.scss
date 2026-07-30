@@ -7,9 +7,79 @@ $secondary-color: #9747ff;
 $accent-color: #70e61c;
 $error-color: #e61c40;
 
+// Vertical distance between two sections of the one-pager. Every section
+// carries it as `margin-bottom` only — never as top *and* bottom — so the gap
+// between two sections is always exactly this value.
+$section-gap: 180px;
+
+// The breakpoints the shared type scales step down at. They are deliberately
+// few: a headline must never be at a different size than the headline of the
+// section above it at the same viewport width.
+$bp-md: 1000px;
+$bp-sm: 480px;
+$bp-xs: 380px;
+
+// The two widths the horizontal safe area (`--section-gutter`, defined in
+// styles.scss) changes at. Components that need to know the gutter's *value*
+// should read the custom property; these exist for layout rules that have to
+// change at the same moment.
+$bp-gutter-md: 1350px;
+$bp-gutter-sm: 560px;
+
 @mixin dFlex($jc: center, $ai: center, $fd: row) {
   display: flex;
   justify-content: $jc;
   align-items: $ai;
   flex-direction: $fd;
+}
+
+// The headline of a section ("Über mich", "Meine Skills", "Portfolio",
+// "Kontakt"). All four use this, so they are never different sizes.
+@mixin section-title {
+  font-size: 90px;
+  font-weight: 700;
+
+  @media (max-width: $bp-md) {
+    font-size: 56px;
+  }
+
+  @media (max-width: $bp-sm) {
+    font-size: 42px;
+  }
+
+  @media (max-width: $bp-xs) {
+    font-size: 32px;
+  }
+}
+
+// The second level below a section headline — the skills question, the contact
+// call to action, a project name.
+@mixin sub-title {
+  font-size: 32px;
+  font-weight: 700;
+
+  @media (max-width: $bp-sm) {
+    font-size: 24px;
+  }
+
+  @media (max-width: $bp-xs) {
+    font-size: 20px;
+  }
+}
+
+// Horizontal safe area. Content that carries this lines up with the logo and
+// the navigation in the header, which use the same gutter.
+@mixin gutter {
+  padding-inline: var(--section-gutter);
+}
+
+// Opts a decorative element out of the gutter again so it can run all the way
+// to the edge of the screen. Only accent lines use this — never text.
+@mixin bleed($start: true, $end: true) {
+  @if $start {
+    margin-inline-start: calc(var(--section-gutter) * -1);
+  }
+  @if $end {
+    margin-inline-end: calc(var(--section-gutter) * -1);
+  }
 }

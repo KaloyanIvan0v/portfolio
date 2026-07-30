@@ -114,10 +114,12 @@ a {
   background-color: #b6b6b6 !important;
 }
 
-.purpleLine {
+// The decorative accent line that trails or leads a section headline. Width is
+// set per section — everything that makes it look the same lives here.
+.accent-line {
   height: 3px;
-  width: 1px;
-  color: $secondary-color;
+  background-color: $secondary-color;
+  flex-shrink: 0;
 }
 
 section {
