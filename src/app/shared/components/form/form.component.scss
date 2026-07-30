@@ -1,8 +1,12 @@
 @use "./../../../shared/scss/variables" as *;
+// `max-width` rather than a fixed width: the contact section stacks its two
+// columns below 1080px, and a fixed width made the form stick out of the
+// gutter between roughly 600px and 690px.
 form {
   position: relative;
   @include dFlex($fd: column);
-  width: 617px;
+  width: 100%;
+  max-width: 617px;
   button {
     margin-top: 41px;
   }
@@ -138,12 +142,6 @@ form {
 
 @media (max-width: 1200px) {
   form {
-    width: 550px;
-  }
-}
-
-@media (max-width: 600px) {
-  form {
-    width: 90vw;
+    max-width: 550px;
   }
 }

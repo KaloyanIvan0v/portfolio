@@ -1,9 +1,15 @@
 @use "./../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   @include dFlex($ai: top);
+  @include gutter;
   padding-top: 124px;
-  width: 100vw;
+  margin-bottom: $section-gap;
+  width: 100%;
   max-width: 1920px;
   gap: 149px;
 }
@@ -13,9 +19,14 @@ section {
   height: 100%;
   width: 50%;
   z-index: 4;
-  div {
-    width: 471px;
-  }
+}
+
+// Headline and body text share one column, otherwise the headline starts at the
+// edge of the 50% column while the text below it sits centred inside it.
+.content-title,
+.content-text {
+  width: 100%;
+  max-width: 471px;
 }
 
 .about-me-img {
@@ -41,10 +52,8 @@ section {
 }
 
 .content-title {
-  font-size: 86px;
-  font-weight: 700;
+  @include section-title;
   margin-bottom: 40px;
-  width: 100%;
 }
 
 .about-me-text-personal {
@@ -83,17 +92,12 @@ section {
 
   section {
     gap: 49px;
-    //margin-left: 100px;
   }
 }
 
 @media (max-width: 1000px) {
-  .content-title {
-    font-size: 60px;
-  }
-
   .about-me-img {
-    width: 305;
+    width: 305px;
     > img {
       width: 250px;
       height: 250px;
@@ -110,15 +114,14 @@ section {
     display: none;
   }
 
-  .content-title {
-    font-size: 46px;
-  }
-
   .about-me-content {
     width: 100%;
-    z-index: 4;
-    div {
-      width: 90%;
-    }
+  }
+
+  // Without the image next to it the column may use the full width; the gutter
+  // keeps it off the edge of the screen.
+  .content-title,
+  .content-text {
+    max-width: none;
   }
 }

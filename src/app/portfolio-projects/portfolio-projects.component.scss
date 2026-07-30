@@ -1,36 +1,52 @@
 @use "./../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   position: relative;
   @include dFlex($fd: column);
-  width: 100vw;
+  @include gutter;
+  width: 100%;
   max-width: 1920px;
-  margin-top: 180px;
-  margin-bottom: 180px;
+  margin-bottom: $section-gap;
   z-index: 4;
 }
 
+// The headline row is the one thing that reaches past the gutter: its accent
+// lines run to the edge of the screen. The headline text inside it does not —
+// `.purple-line-right` is never allowed to fall below one gutter.
 .headline {
   @include dFlex($jc: end);
-  width: 100%;
+  @include bleed;
+  width: calc(100% + var(--section-gutter) * 2);
   margin-bottom: 40px;
+
   h2 {
-    font-size: 90px;
-    font-weight: 700;
-    padding: 0px 32px 0px 32px;
+    @include section-title;
+    padding-inline: 32px;
+    flex-shrink: 0;
   }
 }
 
 .purple-line-left {
   width: 100px;
-  height: 3px;
-  background-color: $secondary-color;
 }
 
 .purple-line-right {
-  width: calc(50% - 226px);
-  height: 3px;
-  background-color: $secondary-color;
+  width: max(var(--section-gutter), calc(50% - 226px));
+}
+
+.sub-headline {
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+// Spacing between the projects, at every width — above 1150px they used to sit
+// flush against each other.
+.single-project {
+  margin-bottom: 65px;
 }
 
 .portfolio-shadow {
@@ -40,40 +56,13 @@ section {
   z-index: -2;
 }
 
-@media (max-width: 1150px) {
-  .single-project {
-    margin-bottom: 65px;
-  }
-}
-
 @media (max-width: 860px) {
-  .sub-headline {
-    max-width: 90%;
-  }
   .headline {
     @include dFlex($jc: center);
-    h2 {
-      font-size: 68px;
-    }
-  }
-
-  .purple-line-right {
-    width: calc(50% - 200px);
-  }
-}
-
-@media (max-width: 600px) {
-  .portfolio-title {
-    h2 {
-      font-size: 56px;
-    }
   }
 }
 
 @media (max-width: 500px) {
-  .sub-headline {
-    max-width: 90%;
-  }
   .portfolio-shadow {
     top: 650px;
     img {
@@ -83,12 +72,6 @@ section {
 }
 
 @media (max-width: 450px) {
-  .portfolio-title {
-    h2 {
-      font-size: 42px;
-    }
-  }
-
   .portfolio-shadow {
     img {
       width: 320px;

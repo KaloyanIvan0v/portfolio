@@ -1,5 +1,9 @@
 @use "./../../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   @include dFlex();
   max-width: 1920px;

@@ -1,8 +1,12 @@
 @use "./../../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   @include dFlex();
-  width: 100vw;
+  width: 100%;
   max-width: 1920px;
   gap: 48px;
   z-index: 2;
@@ -23,15 +27,18 @@ section.reverse .project-data {
 }
 
 .project-title {
+  @include sub-title;
   width: max-content;
-  font-size: 32px;
-  font-weight: 700;
   color: $secondary-color;
 }
 
+// `max-width` + `wrap` instead of `width: max-content`: the fixed content width
+// pushed both rows out of the gutter on narrow screens because the project data
+// is centre-aligned there.
 .tech-stack {
-  width: max-content;
+  max-width: 100%;
   @include dFlex();
+  flex-wrap: wrap;
   gap: 8px;
   .tech,
   .divider {
@@ -42,8 +49,10 @@ section.reverse .project-data {
 }
 
 .project-buttons {
-  width: max-content;
+  max-width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 15px;
   gap: 86px;
 }
@@ -51,10 +60,6 @@ section.reverse .project-data {
 @media (max-width: 1300px) {
   section {
     gap: 0px;
-  }
-
-  .project-image {
-    padding: 0px 0px 0px 0px;
   }
 }
 
@@ -74,28 +79,26 @@ section.reverse .project-data {
 @media (max-width: 650px) {
   .project-image {
     img {
-      width: 95%;
+      width: 100%;
       height: auto;
     }
   }
 
   section {
     > div {
-      width: 90%;
+      width: 100%;
     }
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: $bp-sm) {
   .project-buttons {
-    gap: 64px;
+    gap: 48px;
     a {
       font-size: 18px;
     }
   }
-}
 
-@media (max-width: 430px) {
   .tech-stack {
     .tech,
     .divider {
@@ -104,15 +107,11 @@ section.reverse .project-data {
   }
 }
 
-@media (max-width: 400px) {
-  .project-title {
-    font-size: 28px;
-  }
+@media (max-width: $bp-xs) {
   .project-buttons {
-    gap: 48px;
+    gap: 32px;
     a {
       font-size: 16px;
-      gap: 0px;
     }
   }
 }

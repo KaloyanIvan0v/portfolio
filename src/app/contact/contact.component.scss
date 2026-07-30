@@ -1,56 +1,43 @@
 @use "./../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   position: relative;
   @include dFlex($fd: column);
-  width: 100vw;
+  @include gutter;
+  width: 100%;
   max-width: 1920px;
-  margin-bottom: 180px;
+  margin-bottom: $section-gap;
   z-index: 4;
   background-color: $primary-background-color;
 }
 
+// Same construction as the portfolio headline: the accent line runs to the edge
+// of the screen, the headline text stops at the gutter.
 .headline {
   @include dFlex($jc: start);
-  width: 100%;
+  @include bleed;
+  width: calc(100% + var(--section-gutter) * 2);
+  margin-bottom: 40px;
+
   h2 {
-    font-size: 90px;
-    font-weight: 700;
-    margin: 0px 32px 0px 32px;
-  }
-}
-
-// Used to live in global.scss as `.g-title` and needed `!important` to beat
-// the rule above. Same component, so it belongs here and the override goes.
-@media (max-width: 1000px) {
-  .headline h2 {
-    font-size: 56px;
-  }
-}
-
-@media (max-width: 480px) {
-  .headline h2 {
-    font-size: 42px;
-  }
-}
-
-@media (max-width: 380px) {
-  .headline h2 {
-    font-size: 32px;
+    @include section-title;
+    padding-inline: 32px;
+    flex-shrink: 0;
   }
 }
 
 .purple-line-left {
-  width: calc(50% - 219px);
-  height: 4px;
-  background-color: $secondary-color;
+  width: max(var(--section-gutter), calc(50% - 219px));
 }
 
 .contact-main-content {
   @include dFlex($ai: start);
   width: 100%;
-  margin-top: 40px;
-  box-sizing: border-box;
+  gap: 24px;
 }
 
 .contact-left-container {
@@ -60,14 +47,14 @@ section {
 
 .call-to-action-content {
   @include dFlex($fd: column, $ai: start, $jc: start);
-  width: 474px;
+  width: 100%;
+  max-width: 474px;
   z-index: 3;
 }
 
 .call-to-action-header {
   p {
-    font-size: 32px;
-    font-weight: 700;
+    @include sub-title;
     margin-bottom: 24px;
   }
 }
@@ -100,7 +87,7 @@ section {
   position: absolute;
   width: 39px;
   height: 39px;
-  right: 100px;
+  right: var(--section-gutter);
   bottom: -90px;
   z-index: 5;
   background-image: url("./../../assets/img/05-contact-section/buttons/go-up-buttons/go-up-default.png");
@@ -115,24 +102,18 @@ section {
   .contact-left-container {
     width: 600px;
   }
-  .contact-main-content {
-    gap: 24px;
-  }
-
-  .contact-main-content {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
 }
 
 @media (max-width: 1080px) {
   .contact-main-content {
     @include dFlex($fd: column, $ai: start, $jc: start);
-    padding-left: 10%;
+  }
+
+  .contact-left-container {
+    width: 100%;
   }
 
   .contact-shadow {
-    position: absolute;
     left: -50px;
     top: 820px;
     z-index: -1;
@@ -145,58 +126,25 @@ section {
   }
 
   .up-button {
-    right: 60px;
     bottom: -110px;
   }
 }
 
 @media (max-width: 680px) {
-  .contact-main-content {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .contact-left-container {
-    width: 320px;
-  }
-
   .up-button {
-    right: 30px;
     bottom: -130px;
   }
 }
 
-@media (max-width: 480px) {
-  .call-to-action-header {
-    p {
-      font-size: 24px;
-    }
-    .up-button {
-      right: 30px;
-      bottom: -160px;
-    }
+@media (max-width: $bp-sm) {
+  // At this width the accent line is exactly as long as the bleed, so dropping
+  // the headline's leading padding puts "Kontakt" on the same line as the text
+  // below it instead of 32px further in.
+  .headline h2 {
+    padding-inline-start: 0;
   }
 
-  .call-to-action-text {
-    p {
-      font-size: 16px;
-    }
-  }
-}
-
-@media (max-width: 380px) {
-  .call-to-action-header {
-    p {
-      font-size: 20px;
-    }
-  }
-
-  .call-to-action-text {
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .contact-left-container {
-    width: 90vw;
+  .up-button {
+    bottom: -160px;
   }
 }

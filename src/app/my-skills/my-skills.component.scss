@@ -1,55 +1,56 @@
 @use "./../shared/scss/variables" as *;
 
+:host {
+  display: block;
+}
+
 section {
   position: relative;
   @include dFlex($jc: space-between);
-  width: 100vw;
+  @include gutter;
+  width: 100%;
   max-width: 1920px;
-  margin-top: 180px;
-  margin-bottom: 180px;
-  box-sizing: border-box;
+  margin-bottom: $section-gap;
   z-index: 4;
 }
 
+// The gutter on the section already holds the text off the edge — the column
+// itself carries no padding, so headline, text, sub headline and button all end
+// on exactly the same vertical line.
 .skill-content-container {
-  width: 605px;
+  width: 505px;
   @include dFlex($fd: column, $ai: end);
-  box-sizing: border-box;
 }
 
 .experience-div {
   @include dFlex($jc: end);
   margin-bottom: 24px;
-  padding-right: 100px;
   > p {
     max-width: 470px;
     text-align: right;
   }
 }
 
+// Only the accent line reaches past the gutter to the edge of the screen.
 .skill-content-title {
   @include dFlex();
+  @include bleed($start: false);
   margin-bottom: 40px;
 }
 
 .purple-line-title {
+  @include section-title;
   width: 100%;
-  font-size: 90px;
-  font-weight: 700;
 }
 
 .purple-line {
-  height: 3px;
-  width: 70px;
-  background-color: $secondary-color;
+  width: calc(70px + var(--section-gutter));
 }
 
 .sub-title {
-  font-size: 32px;
-  font-weight: 700;
+  @include sub-title;
   margin-top: 24px;
   margin-bottom: 16px;
-  padding-right: 100px;
   text-align: right;
   span {
     color: $secondary-color;
@@ -58,7 +59,6 @@ section {
 }
 
 .cta-div {
-  padding-right: 100px;
   > p {
     text-align: right;
   }
@@ -70,29 +70,27 @@ section {
   top: 50px;
   z-index: -1;
 }
+
 .get-in-touch {
   font-size: 22px;
-  margin-right: 100px;
   margin-top: 40px;
 }
 
 .skill-icons-container-desktop {
-  padding-left: 48px;
   min-width: 664px;
 }
 
 .skill-icons-container-mobile {
   display: none;
-  padding: 24px;
+  padding-block: 24px;
   width: 100%;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: $bp-gutter-md) {
   section {
-    padding: 20px;
-    box-sizing: border-box;
     @include dFlex($jc: end);
   }
+
   .skill-icons-container-desktop {
     display: none;
   }
@@ -102,7 +100,7 @@ section {
   }
 
   .skill-content-container {
-    width: 700px;
+    width: 680px;
   }
 
   .skill-content-title {
@@ -115,51 +113,18 @@ section {
     width: max-content;
     text-align: right;
   }
+}
 
+@media (max-width: $bp-gutter-sm) {
+  // A shorter line at this size, otherwise it pushes the headline so far left
+  // that the longest translation no longer fits on one line.
   .purple-line {
-    width: 20%;
+    width: calc(20px + var(--section-gutter));
   }
+}
 
-  .sub-title {
-    padding-right: 20px;
-  }
-
-  .experience-div {
-    padding-right: 20px;
-  }
-
-  .cta-div {
-    padding-right: 20px;
-  }
-
+@media (max-width: $bp-xs) {
   .get-in-touch {
-    margin-right: 20px;
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .purple-line-title {
-    font-size: 56px;
-  }
-}
-
-@media (max-width: 450px) {
-  .purple-line-title {
-    font-size: 42px;
-  }
-
-  .sub-title {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 350px) {
-  .purple-line-title {
-    font-size: 32px;
-  }
-
-  .get-in-touch {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 }
