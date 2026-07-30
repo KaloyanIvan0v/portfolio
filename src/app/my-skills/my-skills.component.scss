@@ -36,6 +36,7 @@ section {
   @include dFlex();
   @include bleed($start: false);
   margin-bottom: 40px;
+  gap: 16px;
 }
 
 .purple-line-title {

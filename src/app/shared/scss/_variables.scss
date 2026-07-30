@@ -36,7 +36,7 @@ $bp-gutter-sm: 560px;
 // The headline of a section ("Über mich", "Meine Skills", "Portfolio",
 // "Kontakt"). All four use this, so they are never different sizes.
 @mixin section-title {
-  font-size: 90px;
+  font-size: 80px;
   font-weight: 700;
 
   @media (max-width: $bp-md) {

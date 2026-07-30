@@ -34,6 +34,7 @@ h4,
 h5,
 h6 {
   font-weight: inherit;
+  white-space: nowrap;
 }
 
 input,
@@ -154,7 +155,9 @@ section {
 .v-none {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 175ms ease-in-out, visibility 0ms 175ms;
+  transition:
+    opacity 175ms ease-in-out,
+    visibility 0ms 175ms;
 }
 
 .v-visible {
