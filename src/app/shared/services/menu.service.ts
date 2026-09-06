@@ -1,6 +1,5 @@
 import { Injectable, effect, inject, signal, DOCUMENT } from '@angular/core';
 
-
 /** Holds the open/closed state of the mobile menu. */
 @Injectable({
   providedIn: 'root',
@@ -18,7 +17,7 @@ export class MenuService {
     effect(() => {
       this.document.documentElement.classList.toggle(
         'menu-open',
-        this.mobileMenuVisible()
+        this.mobileMenuVisible(),
       );
     });
   }

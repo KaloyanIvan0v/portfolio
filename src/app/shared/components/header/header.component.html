@@ -11,20 +11,15 @@
           <li>
             <a
               href="#about"
-              (click)="setActive('about me')"
               [attr.aria-current]="activeSection() === 'about me' ? 'location' : null"
             >
               {{ "header.menu.about" | translate }}</a
             >
-            <div
-              [class.purple-line]="activeSection() === 'about me'"
-              class="purple-line"
-            ></div>
+            <div [class.purple-line]="activeSection() === 'about me'"></div>
           </li>
           <li>
             <a
               href="#skills"
-              (click)="setActive('skills')"
               [attr.aria-current]="activeSection() === 'skills' ? 'location' : null"
               >{{
               "header.menu.skills" | translate
@@ -34,7 +29,6 @@
           <li>
             <a
               href="#portfolio"
-              (click)="setActive('portfolio')"
               [attr.aria-current]="
                 activeSection() === 'portfolio' ? 'location' : null
               "

@@ -12,6 +12,12 @@ html {
   scroll-behavior: smooth;
 }
 
+// Set by AppComponent while a route change is in flight: the router's scroll
+// reset must be an instant jump, not an animation across the whole page.
+html.navigating {
+  scroll-behavior: auto;
+}
+
 *,
 *::before,
 *::after {

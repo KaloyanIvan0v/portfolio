@@ -13,6 +13,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { LanguageSwitchComponent } from './../language-switch/language-switch.component';
 import { MenuService } from './../../services/menu.service';
+import { HEADER_OFFSET } from './../../layout.constants';
 
 /** Nav entries in document order; the id matches the section's anchor. */
 const SECTIONS = [
@@ -20,9 +21,6 @@ const SECTIONS = [
   { id: 'skills', label: 'skills' },
   { id: 'portfolio', label: 'portfolio' },
 ] as const;
-
-/** Height of the fixed header — a section counts as active once it reaches it. */
-const HEADER_OFFSET = 112;
 
 @Component({
   selector: 'app-header',
@@ -67,16 +65,14 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  setActive(section: string): void {
-    this.activeSection.set(section);
-  }
-
   showMobileMenu(trigger: HTMLElement): void {
     this.menuService.openMobileMenu(trigger);
   }
 
   /**
    * The last section whose top has passed under the header is the active one.
+   * This is the single source of truth — a click must not set it, otherwise
+   * the underline jumps ahead of the smooth scroll and then snaps back.
    * Elements are looked up lazily because they belong to the routed component
    * and only exist on the main page.
    */
